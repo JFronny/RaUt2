@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "raut:aquilorite_gem"
+    }
+  },
+  "result": {
+    "item": "raut:aquilorite_block",
+    "count": 1
+  }
+}

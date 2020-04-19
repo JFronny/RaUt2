@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    "#C#"
+  ],
+  "key": {
+    "#": {
+      "item": "raut:aquilorite_gem"
+    },
+    "C": {
+      "item": "minecraft:chainmail_boots"
+    }
+  },
+  "result": {
+    "item": "raut:aquilorite_boots",
+    "count": 1
+  }
+}

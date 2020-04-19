@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "age=0": { "model": "raut:block/cotton0" },
+    "age=1": { "model": "raut:block/cotton0" },
+    "age=2": { "model": "raut:block/cotton2" },
+    "age=3": { "model": "raut:block/cotton2" },
+    "age=4": { "model": "raut:block/cotton4" },
+    "age=5": { "model": "raut:block/cotton4" },
+    "age=6": { "model": "raut:block/cotton6" },
+    "age=7": { "model": "raut:block/cotton7" }
+  }
+}

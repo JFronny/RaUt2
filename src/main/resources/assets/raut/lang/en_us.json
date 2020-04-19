@@ -1,0 +1,16 @@
+{
+  "block.raut.aquilorite_ore": "Aquilorite Ore",
+  "block.raut.aquilorite_block": "Aquilorite Block",
+  "block.raut.aquilorite_block_hardened": "Aquilorite Block (hardened)",
+  "block.raut.boost": "Boost",
+  "item.raut.aquilorite_gem": "Aquilorite Gem",
+  "item.raut.aquilorite_boots": "Aquilorite Boots",
+  "item.raut.aquilorite_chestplate": "Aquilorite Chestplate",
+  "item.raut.aquilorite_helmet": "Aquilorite Helmet",
+  "item.raut.aquilorite_leggings": "Aquilorite Leggings",
+  "item.raut.chain_plate": "Chain Plate",
+  "item.raut.debug_clear": "Debug Clear",
+  "attribute.name.generic.flyingSpeed": "Flying speed",
+  "item.raut.cotton_seeds":"Cotton Seeds",
+  "block.raut.cotton":"Cotton"
+}

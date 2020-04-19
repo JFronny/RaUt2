@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "raut",
+  "version": "${version}",
+  "name": "RaUt2",
+  "description": "Handwritten random utilities",
+  "authors": [
+    "JFronny"
+  ],
+  "contributors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/raut/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.jfronny.raut.RaUt"
+    ],
+    "client": [],
+    "server": []
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*"
+  }
+}

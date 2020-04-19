@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#B#",
+    "BNB",
+    "#B#"
+  ],
+  "key": {
+    "#": {
+      "item": "raut:aquilorite_gem"
+    },
+    "B": {
+      "item": "minecraft:black_wool"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "raut:boost",
+    "count": 1
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#C#",
+    "# #"
+  ],
+  "key": {
+    "#": {
+      "item": "raut:aquilorite_gem"
+    },
+    "C": {
+      "item": "minecraft:chainmail_leggings"
+    }
+  },
+  "result": {
+    "item": "raut:aquilorite_leggings",
+    "count": 1
+  }
+}
