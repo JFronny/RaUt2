@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "###",
-    "#i#",
-    "###"
+    "rr",
+    "/r",
+    "/"
   ],
   "key": {
-    "#": {
-      "item": "raut:aquilorite_gem"
-    },
-    "i": {
+    "r": {
       "item": "raut:steel_ingot"
+    },
+    "/": {
+      "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "raut:aquilorite_block_hardened",
+    "item": "raut:steel_axe",
     "count": 1
   }
 }

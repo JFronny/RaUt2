@@ -18,7 +18,7 @@ public class AquiloriteArmorMat implements AttributeArmorMat {
     private static final int[] PROTECTION_AMOUNTS = new int[]{3, 6, 8, 3};
     @Override
     public int getDurability(EquipmentSlot slot) {
-        return BASE_DURABILITY[slot.getEntitySlotId()] * 25;
+        return BASE_DURABILITY[slot.getEntitySlotId()] * 40;
     }
 
     @Override
@@ -28,7 +28,7 @@ public class AquiloriteArmorMat implements AttributeArmorMat {
 
     @Override
     public int getEnchantability() {
-        return 50;
+        return 30;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class AquiloriteArmorMat implements AttributeArmorMat {
 
     @Override
     public float getToughness() {
-        return 2;
+        return 2.5f;
     }
 
     @Override

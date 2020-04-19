@@ -16,7 +16,9 @@
     "main": [
       "com.jfronny.raut.RaUt"
     ],
-    "client": [],
+    "client": [
+      "com.jfronny.raut.client.RaUtClient"
+    ],
     "server": []
   },
   "mixins": [],

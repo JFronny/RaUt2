@@ -2,19 +2,19 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "###",
-    "#i#",
+    "#C#",
     "###"
   ],
   "key": {
     "#": {
-      "item": "raut:aquilorite_gem"
+      "item": "minecraft:iron_nugget"
     },
-    "i": {
-      "item": "raut:steel_ingot"
+    "C": {
+      "item": "minecraft:charcoal"
     }
   },
   "result": {
-    "item": "raut:aquilorite_block_hardened",
+    "item": "raut:raw_steel",
     "count": 1
   }
 }

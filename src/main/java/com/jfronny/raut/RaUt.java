@@ -1,10 +1,13 @@
 package com.jfronny.raut;
 
+import com.jfronny.raut.api.*;
 import com.jfronny.raut.armor.AquiloriteArmorMat;
-import com.jfronny.raut.api.AttributeArmorMat;
-import com.jfronny.raut.api.BaseArmor;
+import com.jfronny.raut.armor.SteelArmorMat;
 import com.jfronny.raut.crops.CottonCrop;
 import com.jfronny.raut.items.DebugClear;
+import com.jfronny.raut.tools.SteelToolMat;
+import io.github.cottonmc.cotton.config.ConfigManager;
+import io.github.cottonmc.cotton.logging.ModLogger;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
@@ -26,13 +29,8 @@ import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class RaUt implements ModInitializer {
-
-    public static Logger LOGGER = LogManager.getLogger();
     public static final Item CHAIN_PLATE = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
     public static final Block AQUILORITE_ORE = new Block(FabricBlockSettings.of(Material.STONE).breakByHand(false).breakByTool(FabricToolTags.PICKAXES, 3).strength(2, 2).build());
     public static final Block AQUILORITE_BLOCK = new Block(FabricBlockSettings.of(Material.GLASS).breakByHand(false).breakByTool(FabricToolTags.PICKAXES, 2).noCollision().strength(2, 2).build());
@@ -43,25 +41,55 @@ public class RaUt implements ModInitializer {
     public static final Item DEBUG_CLEAR = new DebugClear();
     public static final Block COTTON_CROP = new CottonCrop();
     public static final Item COTTON_SEED = new AliasedBlockItem(COTTON_CROP, new Item.Settings().group(ItemGroup.MATERIALS));
+    public static final Item RAW_STEEL = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
+    public static final Item STEEL_INGOT = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
+    public static final Item STEEL_NUGGET = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
+    public static final Block STEEL_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).breakByHand(false).breakByTool(FabricToolTags.PICKAXES, 2).strength(5, 6).build());
+    public static final AttributeArmorMat STEEL_ARMOR = new SteelArmorMat();
     public static final String MOD_ID = "raut";
     public static final String MOD_NAME = "RaUt2";
+    public static Config config;
+    public static final ModLogger logger = new ModLogger(MOD_ID, MOD_NAME);
 
     @Override
     public void onInitialize() {
-        log(Level.INFO, "Initializing config");
-        Config.initialize();
-        if (Config.miscModule.value){
-            log(Level.INFO, "Registering misc module");
+        logger.info("Initializing");
+        logger.devInfo("Initializing config");
+        config = ConfigManager.loadConfig(Config.class);
+        if (config.misc){
+            logger.devInfo("Registering misc module");
             Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "boost"), BOOST);
             Registry.register(Registry.ITEM, new Identifier(MOD_ID, "boost"), new BlockItem(BOOST, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
             Registry.register(Registry.ITEM, new Identifier(MOD_ID, "chain_plate"), CHAIN_PLATE);
         }
-        else if (Config.aquiloriteModule.value){
-            log(Level.INFO, "Registering misc module stub");
+        else if (config.aquilorite){
+            logger.devInfo("Registering misc module stub");
             Registry.register(Registry.ITEM, new Identifier(MOD_ID, "chain_plate"), CHAIN_PLATE);
         }
-        if (Config.aquiloriteModule.value) {
-            log(Level.INFO, "Registering aquilorite module");
+        if (config.steel){
+            logger.devInfo("Registering steel module");
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "steel_axe"), new BaseAxe(new SteelToolMat()));
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "steel_hoe"), new BaseHoe(new SteelToolMat()));
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "steel_pickaxe"), new BasePickaxe(new SteelToolMat()));
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "steel_shovel"), new BaseShovel(new SteelToolMat()));
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "steel_sword"), new BaseSword(new SteelToolMat()));
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "raw_steel"), RAW_STEEL);
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "steel_ingot"), STEEL_INGOT);
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "steel_nugget"), STEEL_NUGGET);
+            Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "steel_block"), STEEL_BLOCK);
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "steel_block"), new BlockItem(STEEL_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "steel_helmet"), new BaseArmor(STEEL_ARMOR, EquipmentSlot.HEAD));
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "steel_chestplate"), new BaseArmor(STEEL_ARMOR, EquipmentSlot.CHEST));
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "steel_leggings"), new BaseArmor(STEEL_ARMOR, EquipmentSlot.LEGS));
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "steel_boots"), new BaseArmor(STEEL_ARMOR, EquipmentSlot.FEET));
+        }
+        else if (config.aquilorite){
+            logger.devInfo("Registering steel module stub");
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "raw_steel"), RAW_STEEL);
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "steel_ingot"), STEEL_INGOT);
+        }
+        if (config.aquilorite) {
+            logger.devInfo("Registering aquilorite module");
             Registry.register(Registry.ITEM, new Identifier(MOD_ID, "aquilorite_gem"), AQUILORITE_GEM);
             Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "aquilorite_ore"), AQUILORITE_ORE);
             Registry.register(Registry.ITEM, new Identifier(MOD_ID, "aquilorite_ore"), new BlockItem(AQUILORITE_ORE, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
@@ -76,8 +104,8 @@ public class RaUt implements ModInitializer {
             Registry.register(Registry.ITEM, new Identifier(MOD_ID, "aquilorite_leggings"), new BaseArmor(AQUILORITE_ARMOR, EquipmentSlot.LEGS));
             Registry.register(Registry.ITEM, new Identifier(MOD_ID, "aquilorite_boots"), new BaseArmor(AQUILORITE_ARMOR, EquipmentSlot.FEET));
         }
-        if (Config.cottonModule.value){
-            log(Level.INFO, "Registering cotton module");
+        if (config.cotton){
+            logger.devInfo("Registering cotton module");
             Registry.register(Registry.ITEM, new Identifier(MOD_ID, "cotton_seeds"), COTTON_SEED);
             Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "cotton"), COTTON_CROP);
             LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
@@ -92,8 +120,8 @@ public class RaUt implements ModInitializer {
                 }
             });
         }
-        if (Config.debugModule.value){
-            log(Level.INFO, "Registering debug module");
+        if (config.debug){
+            logger.devInfo("Registering debug module");
             Registry.register(Registry.ITEM, new Identifier(MOD_ID, "debug_clear"), DEBUG_CLEAR);
         }
 
@@ -116,10 +144,6 @@ public class RaUt implements ModInitializer {
                                     40 //Max y level
                             ))));
         }
-    }
-
-    public static void log(Level level, String message){
-        LOGGER.log(level, "["+MOD_NAME+"] " + message);
     }
 
 }
