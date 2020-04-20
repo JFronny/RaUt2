@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " ##",
+    "#R#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:leather"
+    },
+    "R": {
+      "item": "raut:cain_plate"
+    }
+  },
+  "result": {
+    "item": "minecraft:leather_horse_armor",
+    "count": 1
+  }
+}

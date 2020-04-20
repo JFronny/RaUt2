@@ -44,7 +44,7 @@
               }
             }
           ],
-          "name": "raut:cotton_seeds"
+          "name": "raut:cotton"
         }
       ],
       "conditions": [
@@ -62,7 +62,7 @@
       "entries":[
         {
           "type": "minecraft:item",
-          "name": "raut:cotton_seeds"
+          "name": "raut:cotton"
         }
       ]
     }

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "r"
+  ],
+  "key": {
+    "r": {
+      "item": "raut:aquilorite_block_hardened"
+    }
+  },
+  "result": {
+    "item": "raut:aquilorite_gem",
+    "count": 8
+  }
+}

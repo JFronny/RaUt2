@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#C#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:diamond"
+    },
+    "C": {
+      "item": "minecraft:chainmail_helmet"
+    }
+  },
+  "result": {
+    "item": "minecraft:diamond_helmet",
+    "count": 1
+  }
+}

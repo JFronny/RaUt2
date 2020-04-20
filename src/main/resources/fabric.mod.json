@@ -19,7 +19,10 @@
     "client": [
       "com.jfronny.raut.client.RaUtClient"
     ],
-    "server": []
+    "server": [],
+    "rei_plugins_v0": [
+      "com.jfronny.raut.REICompat"
+    ]
   },
   "mixins": [],
   "depends": {

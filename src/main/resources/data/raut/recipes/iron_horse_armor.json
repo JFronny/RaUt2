@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " #i",
+    "iRi"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:leather"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "R": {
+      "item": "raut:cain_plate"
+    }
+  },
+  "result": {
+    "item": "minecraft:iron_horse_armor",
+    "count": 1
+  }
+}

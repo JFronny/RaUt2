@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " #g",
+    "gRg"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:leather"
+    },
+    "g": {
+      "item": "minecraft:gold_ingot"
+    },
+    "R": {
+      "item": "raut:cain_plate"
+    }
+  },
+  "result": {
+    "item": "minecraft:golden_horse_armor",
+    "count": 1
+  }
+}

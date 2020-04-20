@@ -35,16 +35,14 @@ dependencies {
 	//Trinkets
 	//modImplementation "com.github.emilyploszaj:trinkets:${project.trinkets_version}"
 
-	//Tweed
-	//include "com.github.Siphalor:tweed-api:${project.tweed_version}"
-	//modImplementation ("com.github.Siphalor:tweed-api:${project.tweed_version}") {
-	//	exclude group: ("net.fabricmc.fabric-api")
-	//	exclude module: "modmenu"
-	//}
-
 	//Cotton
 	include "io.github.cottonmc.cotton:cotton:${project.cotton_version}"
 	modImplementation "io.github.cottonmc.cotton:cotton:${project.cotton_version}"
+
+	//REI
+	modCompile ("me.shedaniel:RoughlyEnoughItems:3.6.4"){
+		exclude module: "modmenu"
+	}
 }
 
 processResources {
