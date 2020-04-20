@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
-  "textures" : {
+  "textures": {
     "layer0": "raut:item/steel_axe"
   }
 }

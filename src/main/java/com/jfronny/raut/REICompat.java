@@ -23,7 +23,7 @@ public class REICompat implements REIPluginV0 {
 
     @Override
     public void registerEntries(EntryRegistry entryRegistry) {
-        if (config.reiCompat){
+        if (config.reiCompat) {
             RaUt.logger.info("Configuring resource visibility");
             recheckItemHiding(entryRegistry.getStacksList());
         }

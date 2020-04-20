@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "raut:block/steel_block"}
+    "": {
+      "model": "raut:block/steel_block"
+    }
   }
 }

@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "raut:block/boost"}
+    "": {
+      "model": "raut:block/boost"
+    }
   }
 }

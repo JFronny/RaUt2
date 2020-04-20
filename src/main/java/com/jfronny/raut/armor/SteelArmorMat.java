@@ -2,6 +2,7 @@ package com.jfronny.raut.armor;
 
 import com.jfronny.raut.RaUt;
 import com.jfronny.raut.api.AttributeArmorMat;
+import com.jfronny.raut.modules.SteelModule;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -15,6 +16,7 @@ import java.util.HashMap;
 public class SteelArmorMat implements AttributeArmorMat {
     private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
     private static final int[] PROTECTION_AMOUNTS = new int[]{2, 6, 7, 2};
+
     @Override
     public int getDurability(EquipmentSlot slot) {
         return BASE_DURABILITY[slot.getEntitySlotId()] * 60;
@@ -37,7 +39,7 @@ public class SteelArmorMat implements AttributeArmorMat {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(RaUt.STEEL_INGOT);
+        return Ingredient.ofItems(SteelModule.STEEL_INGOT);
     }
 
     @Override

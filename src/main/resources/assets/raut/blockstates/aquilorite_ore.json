@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "raut:block/aquilorite_ore"}
+    "": {
+      "model": "raut:block/aquilorite_ore"
+    }
   }
 }

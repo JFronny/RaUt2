@@ -1,6 +1,6 @@
 {
-  "parent":"block/crop",
-  "textures":{
-    "crop":"raut:block/cotton2"
+  "parent": "block/crop",
+  "textures": {
+    "crop": "raut:block/cotton2"
   }
 }

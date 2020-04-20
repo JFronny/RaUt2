@@ -17,16 +17,16 @@ public class DebugClear extends Item {
     }
 
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity PlayerEntity, Hand hand){
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity PlayerEntity, Hand hand) {
         Vec3d player = PlayerEntity.getPos();
-        for (int xOff = -10; xOff < 10; xOff++){
+        for (int xOff = -10; xOff < 10; xOff++) {
             int x = (int) (player.x + xOff);
-            for (int yOff = -10; yOff < 10; yOff++){
+            for (int yOff = -10; yOff < 10; yOff++) {
                 int y = (int) (player.y + yOff);
-                for (int zOff = -10; zOff < 10; zOff++){
+                for (int zOff = -10; zOff < 10; zOff++) {
                     int z = (int) (player.z + zOff);
                     BlockPos pos = new BlockPos(x, y, z);
-                    if (world.canSetBlock(pos)){
+                    if (world.canSetBlock(pos)) {
                         world.removeBlock(pos, false);
                     }
                 }

@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "raut:block/aquilorite_block"}
+    "": {
+      "model": "raut:block/aquilorite_block"
+    }
   }
 }

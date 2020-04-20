@@ -23,39 +23,39 @@ import static com.jfronny.raut.RaUt.MOD_ID;
 public class DepRegistry {
     public static HashMap<String, Item> disabledItems = new HashMap<>();
 
-    public static void registerItem(String ID, Boolean dep, Item item){
+    public static void registerItem(String ID, Boolean dep, Item item) {
         if (!dep) {
             Item nullIt = new DisabledItem();
             disabledItems.put(ID, nullIt);
             Registry.register(Registry.ITEM, new Identifier(MOD_ID, ID), nullIt);
-        }
-        else {
+        } else {
             Registry.register(Registry.ITEM, new Identifier(MOD_ID, ID), item);
         }
     }
 
-    public static void registerBlock(String ID, Boolean dep, Block block){
+    public static void registerBlock(String ID, Boolean dep, Block block) {
         registerBlock(ID, dep, block, ItemGroup.BUILDING_BLOCKS);
     }
 
-    public static void registerBlock(String ID, Boolean dep, Block block, ItemGroup group){
+    public static void registerBlock(String ID, Boolean dep, Block block, ItemGroup group) {
         registerBlock(ID, dep, block, new BlockItem(block, new Item.Settings().group(group)));
     }
 
-    public static void registerBlock(String ID, Boolean dep, Block block, BlockItem item){
+    public static void registerBlock(String ID, Boolean dep, Block block, BlockItem item) {
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, ID), dep ? block : new Block(FabricBlockSettings.of(Material.AIR).build()));
         registerItem(ID, dep, item);
     }
 
-    public static void registerTools(String IDPrefix, Boolean dep, FactorToolMat mat){
+    public static void registerTools(String IDPrefix, Boolean dep, FactorToolMat mat) {
         registerItem(IDPrefix + "_axe", dep, new BaseAxe(mat));
         registerItem(IDPrefix + "_hoe", dep, new BaseHoe(mat));
         registerItem(IDPrefix + "_pickaxe", dep, new BasePickaxe(mat));
         registerItem(IDPrefix + "_shovel", dep, new BaseShovel(mat));
         registerItem(IDPrefix + "_sword", dep, new BaseSword(mat));
+        registerItem(IDPrefix + "_paxel", dep, new BasePaxel(mat));
     }
 
-    public static void registerArmor(String IDPrefix, Boolean dep, AttributeArmorMat mat){
+    public static void registerArmor(String IDPrefix, Boolean dep, AttributeArmorMat mat) {
         registerItem(IDPrefix + "_helmet", dep, new BaseArmor(mat, EquipmentSlot.HEAD));
         registerItem(IDPrefix + "_chestplate", dep, new BaseArmor(mat, EquipmentSlot.CHEST));
         registerItem(IDPrefix + "_leggings", dep, new BaseArmor(mat, EquipmentSlot.LEGS));

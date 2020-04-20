@@ -1,2 +1,2 @@
 Steel: Iron + 414141
-Aquilorite: Diamond + 
+Aquilorite: Diamond + 001cff (this was changed during development)

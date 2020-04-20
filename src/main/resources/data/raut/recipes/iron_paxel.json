@@ -1,0 +1,25 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "123",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "1": {
+      "item": "minecraft:iron_axe"
+    },
+    "2": {
+      "item": "minecraft:iron_shovel"
+    },
+    "3": {
+      "item": "minecraft:iron_pickaxe"
+    }
+  },
+  "result": {
+    "item": "raut:iron_paxel"
+  }
+}

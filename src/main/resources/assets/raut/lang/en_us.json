@@ -24,7 +24,14 @@
   "item.raut.steel_shovel": "Steel Shovel",
   "item.raut.steel_sword": "Steel Sword",
   "attribute.name.generic.flyingSpeed": "Flying speed",
-  "item.raut.cotton":"Cotton Seeds",
-  "block.raut.cotton":"Cotton",
-  "status.raut.disabled": "Disabled Item"
+  "item.raut.cotton": "Cotton Seeds",
+  "block.raut.cotton": "Cotton",
+  "status.raut.disabled": "Disabled Item",
+  "item.raut.wooden_paxel": "Wooden Paxel",
+  "item.raut.stone_paxel": "Stone Paxel",
+  "item.raut.iron_paxel": "Iron Paxel",
+  "item.raut.golden_paxel": "Golden Paxel",
+  "item.raut.diamond_paxel": "Diamond Paxel",
+  "item.raut.aquilorite_paxel": "Aquilorite Paxel",
+  "item.raut.steel_paxel": "Steel Paxel"
 }

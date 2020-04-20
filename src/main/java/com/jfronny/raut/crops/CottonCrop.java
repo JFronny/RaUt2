@@ -1,8 +1,8 @@
 package com.jfronny.raut.crops;
 
 import com.jfronny.raut.RaUt;
+import com.jfronny.raut.modules.CottonModule;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CropBlock;
@@ -27,18 +27,18 @@ public class CottonCrop extends CropBlock {
 
     @Override
     protected ItemConvertible getSeedsItem() {
-        return RaUt.COTTON_SEED;
+        return CottonModule.COTTON_SEED;
     }
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hitResult) {
-        if(!world.isClient && isMature(state)){
-            List<ItemStack> dropList = getDroppedStacks(state, (ServerWorld)world, pos, null, player, player.getStackInHand(hand));
+        if (!world.isClient && isMature(state)) {
+            List<ItemStack> dropList = getDroppedStacks(state, (ServerWorld) world, pos, null, player, player.getStackInHand(hand));
             DefaultedList<ItemStack> drops = DefaultedList.of();
             drops.addAll(dropList);
 
-            for(ItemStack stack : drops){
-                if(stack.getItem() == RaUt.COTTON_SEED){
+            for (ItemStack stack : drops) {
+                if (stack.getItem() == CottonModule.COTTON_SEED) {
                     ItemStack seedStack = stack.copy();
                     drops.remove(stack);
                     seedStack.decrement(1);
