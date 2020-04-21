@@ -4,12 +4,16 @@ import com.jfronny.raut.api.BaseModule;
 import com.jfronny.raut.api.DefList;
 import com.jfronny.raut.api.DepRegistry;
 import com.jfronny.raut.api.MiningLevel;
+import com.jfronny.raut.tools.AngelBlock;
+import com.jfronny.raut.tools.AngelBlockItem;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import io.github.cottonmc.cotton.datapack.recipe.RecipeUtil;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.FabricLootSupplierBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
+import net.fabricmc.fabric.api.registry.CommandRegistry;
 import net.fabricmc.fabric.api.tools.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
@@ -20,6 +24,7 @@ import net.minecraft.loot.LootManager;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.resource.ResourceManager;
+import net.minecraft.server.command.CommandManager;
 import net.minecraft.util.DefaultedList;
 import net.minecraft.util.Identifier;
 
@@ -27,15 +32,18 @@ import java.util.ArrayList;
 
 import static com.jfronny.raut.RaUt.config;
 import static com.jfronny.raut.RaUt.logger;
+import static com.mojang.brigadier.arguments.IntegerArgumentType.integer;
 
 public class MiscModule extends BaseModule {
     public static final Block BOOST = new Block(FabricBlockSettings.of(Material.GLASS).breakByHand(false).breakByTool(FabricToolTags.PICKAXES, MiningLevel.IRON).slipperiness(10).strength(3, 3).build());
     public static final Item CHAIN_PLATE = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
+    public static final Block ANGEL_BLOCK = new AngelBlock();
 
     @Override
     public void Init() {
         DepRegistry.registerBlock("boost", config.misc, BOOST);
         DepRegistry.registerItem("chain_plate", config.misc || config.aquilorite, CHAIN_PLATE);
+        DepRegistry.registerBlock("angelblock", config.misc, ANGEL_BLOCK, new AngelBlockItem());
         if (config.misc) {
             if (config.replaceVanilla) {
                 logger.devInfo("unreg vanilla armor");
@@ -67,11 +75,20 @@ public class MiscModule extends BaseModule {
             RecipeUtil.removeRecipe("raut:diamond_leggings");
             logger.devInfo("unreg boost");
             RecipeUtil.removeRecipe("raut:boost");
+            logger.devInfo("unreg angelblock");
+            RecipeUtil.removeRecipe("raut:angelblock");
             if (!config.aquilorite) {
                 logger.devInfo("unreg chainplate");
                 RecipeUtil.removeRecipe("raut:chain_plate");
             }
         }
+        CommandRegistry.INSTANCE.register(true, dispatcher -> { // Or directly registering the command to the dispatcher.
+            dispatcher.register(CommandManager.literal("gm").then(CommandManager.argument("mode", integer())
+            .executes(ctx -> {
+
+                return 1;
+            })));
+        });
     }
 
     @Override

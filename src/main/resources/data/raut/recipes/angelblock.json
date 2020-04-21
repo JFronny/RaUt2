@@ -1,22 +1,23 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " #g",
-    "gRg"
+    "#B#",
+    "BgB",
+    "#B#"
   ],
   "key": {
     "#": {
-      "item": "minecraft:leather"
+      "item": "minecraft:feather"
+    },
+    "B": {
+      "item": "minecraft:black_wool"
     },
     "g": {
       "item": "minecraft:gold_ingot"
-    },
-    "R": {
-      "item": "raut:chain_plate"
     }
   },
   "result": {
-    "item": "minecraft:golden_horse_armor",
+    "item": "raut:angelblock",
     "count": 1
   }
 }

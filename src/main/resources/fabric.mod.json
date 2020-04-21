@@ -17,7 +17,7 @@
       "com.jfronny.raut.RaUt"
     ],
     "client": [
-      "com.jfronny.raut.client.RaUtClient"
+      "com.jfronny.raut.RaUtClient"
     ],
     "server": [],
     "rei_plugins_v0": [

@@ -5,7 +5,7 @@ import io.github.cottonmc.cotton.config.annotations.ConfigFile;
 
 @ConfigFile(name = "RaUt2")
 public class Config {
-    @Comment(value = "Miscellaneous content. Includes a recipe for chainmail/horse armor using chain plates, grass dropping melon/pumpkin/beetroot seeds and a block that shoots you across your world")
+    @Comment(value = "Miscellaneous content. Includes a recipe for chainmail/horse armor using chain plates, grass dropping melon/pumpkin/beetroot seeds, an angel block and a block that shoots you across your world")
     public Boolean misc = true;
 
     @Comment(value = "Adds paxels for vanilla resources. Disable if another mod does that already.")
