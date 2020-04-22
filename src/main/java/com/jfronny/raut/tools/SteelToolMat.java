@@ -1,6 +1,5 @@
 package com.jfronny.raut.tools;
 
-import com.jfronny.raut.RaUt;
 import com.jfronny.raut.api.FactorToolMat;
 import com.jfronny.raut.modules.SteelModule;
 import net.minecraft.recipe.Ingredient;
@@ -17,7 +16,9 @@ public class SteelToolMat implements FactorToolMat {
     }
 
     @Override
-    public float getAttackDamage() { return 2; }
+    public float getAttackDamage() {
+        return 2;
+    }
 
     @Override
     public int getMiningLevel() {

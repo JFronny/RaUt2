@@ -14,18 +14,18 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class RingRenderer {
-    public static void Render(Item ring, MatrixStack matrixStack, VertexConsumerProvider vertexConsumer, int light, PlayerEntityModel<AbstractClientPlayerEntity> model, AbstractClientPlayerEntity player, float headYaw, float headPitch){
+    public static void Render(Item ring, MatrixStack matrixStack, VertexConsumerProvider vertexConsumer, int light, PlayerEntityModel<AbstractClientPlayerEntity> model, AbstractClientPlayerEntity player, float headYaw, float headPitch) {
         ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
         ItemStack stack = new ItemStack(ring);
         ITrinket.translateToChest(matrixStack, model, player, headYaw, headPitch);
         boolean hasChestplate = false;
         for (ItemStack item : player.getArmorItems()) {
             Item tmpItem = item.getItem();
-            if ((tmpItem instanceof ArmorItem) && ((ArmorItem)tmpItem).getSlotType() == EquipmentSlot.CHEST){
+            if ((tmpItem instanceof ArmorItem) && ((ArmorItem) tmpItem).getSlotType() == EquipmentSlot.CHEST) {
                 hasChestplate = true;
             }
         }
-        if (hasChestplate){
+        if (hasChestplate) {
             matrixStack.translate(0, 0, -0.05);
         }
         matrixStack.scale(0.5f, -0.5f, 0.5f);

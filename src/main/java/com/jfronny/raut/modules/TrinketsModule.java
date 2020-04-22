@@ -10,7 +10,9 @@ import dev.emi.trinkets.api.Slots;
 import dev.emi.trinkets.api.TrinketSlots;
 import io.github.cottonmc.cotton.datapack.recipe.RecipeUtil;
 import net.minecraft.util.Identifier;
+
 import static com.jfronny.raut.RaUt.config;
+import static com.jfronny.raut.RaUt.logger;
 
 public class TrinketsModule extends BaseModule {
     @Override
@@ -20,18 +22,19 @@ public class TrinketsModule extends BaseModule {
         DepRegistry.registerItem("angel_ring", config.trinkets, AngelRing::new);
         DepRegistry.registerItem("builders_ring", config.trinkets, BuilderRing::new);
         if (config.trinkets) {
-            if (config.aquilorite){
+            if (config.aquilorite) {
+                logger.devInfo("unreg vanilla trinkets");
                 RecipeUtil.removeRecipe("raut:angel_ring_vn");
                 RecipeUtil.removeRecipe("raut:traveller_ring_vn");
                 RecipeUtil.removeRecipe("raut:builders_ring_vn");
-            }
-            else {
+            } else {
+                logger.devInfo("unreg mod trinkets");
                 RecipeUtil.removeRecipe("raut:angel_ring_aq");
                 RecipeUtil.removeRecipe("raut:traveller_ring_aq");
                 RecipeUtil.removeRecipe("raut:builders_ring_aq");
             }
-        }
-        else {
+        } else {
+            logger.devInfo("unreg all trinkets");
             RecipeUtil.removeRecipe("raut:angel_ring_vn");
             RecipeUtil.removeRecipe("raut:angel_ring_aq");
             RecipeUtil.removeRecipe("raut:traveller_ring_vn");

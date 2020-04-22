@@ -9,7 +9,8 @@ import net.minecraft.world.biome.Biome;
 
 public abstract class BaseModule {
     public abstract void Init();
-    public void InitClient(){
+
+    public void InitClient() {
 
     }
 

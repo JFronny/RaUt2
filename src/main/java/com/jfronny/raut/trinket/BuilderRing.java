@@ -4,11 +4,9 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
 import com.jfronny.raut.api.RingRenderer;
-import dev.emi.stepheightentityattribute.StepHeightEntityAttributeMain;
 import dev.emi.trinkets.api.ITrinket;
 import dev.emi.trinkets.api.SlotGroups;
 import dev.emi.trinkets.api.Slots;
-import io.github.ladysnake.pal.VanillaAbilities;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.DispenserBlock;
@@ -18,7 +16,6 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -58,7 +55,7 @@ public class BuilderRing extends Item implements ITrinket {
     @Override
     public Multimap<String, EntityAttributeModifier> getTrinketModifiers(String group, String slot, UUID uuid, ItemStack stack) {
         Multimap<String, EntityAttributeModifier> map = HashMultimap.create();
-        if (slot.equals(Slots.RING)){
+        if (slot.equals(Slots.RING)) {
             map.put(ReachEntityAttributes.REACH.getId(), new EntityAttributeModifier(uuid, "Reach", 1.5F, EntityAttributeModifier.Operation.ADDITION));
         }
         return map;

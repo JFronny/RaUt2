@@ -16,7 +16,7 @@ import java.util.List;
 public abstract class MixinItemGroup implements ItemGroupExtension {
     List<ItemStack> hackStack = new ArrayList<>();
 
-    public void addStack(ItemStack stack){
+    public void addStack(ItemStack stack) {
         hackStack.add(stack);
     }
 

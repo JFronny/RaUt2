@@ -15,8 +15,8 @@ public class RaUt implements ModInitializer {
     public static final String MOD_ID = "raut";
     public static final String MOD_NAME = "RaUt2";
     public static final ModLogger logger = new ModLogger(MOD_ID, MOD_NAME);
-    public static Config config;
     public static final ArrayList<BaseModule> modules = new ArrayList<>();
+    public static Config config;
 
     @Override
     public void onInitialize() {

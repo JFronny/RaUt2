@@ -2,7 +2,6 @@ package com.jfronny.raut.trinket;
 
 import com.jfronny.raut.RaUt;
 import com.jfronny.raut.api.RingRenderer;
-import com.mojang.blaze3d.platform.GlStateManager;
 import dev.emi.trinkets.api.ITrinket;
 import dev.emi.trinkets.api.SlotGroups;
 import dev.emi.trinkets.api.Slots;
@@ -12,17 +11,15 @@ import io.github.ladysnake.pal.VanillaAbilities;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.DispenserBlock;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
-import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -35,6 +32,7 @@ import java.util.List;
 //I actually did this myself!
 public class AngelRing extends Item implements ITrinket {
     private final AbilitySource abilitySource = Pal.getAbilitySource(RaUt.MOD_ID, "angel_ring");
+
     public AngelRing() {
         super(new Item.Settings().group(ItemGroup.TOOLS));
         DispenserBlock.registerBehavior(this, TRINKET_DISPENSER_BEHAVIOR);

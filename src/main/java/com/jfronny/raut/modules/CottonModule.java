@@ -1,6 +1,5 @@
 package com.jfronny.raut.modules;
 
-import com.jfronny.raut.RaUt;
 import com.jfronny.raut.api.BaseModule;
 import com.jfronny.raut.api.DepRegistry;
 import com.jfronny.raut.crops.CottonCrop;

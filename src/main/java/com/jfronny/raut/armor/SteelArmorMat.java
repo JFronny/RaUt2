@@ -1,6 +1,5 @@
 package com.jfronny.raut.armor;
 
-import com.jfronny.raut.RaUt;
 import com.jfronny.raut.api.AttributeArmorMat;
 import com.jfronny.raut.modules.SteelModule;
 import net.minecraft.entity.EquipmentSlot;

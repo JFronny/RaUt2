@@ -1,6 +1,5 @@
 package com.jfronny.raut.crops;
 
-import com.jfronny.raut.RaUt;
 import com.jfronny.raut.modules.CottonModule;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;

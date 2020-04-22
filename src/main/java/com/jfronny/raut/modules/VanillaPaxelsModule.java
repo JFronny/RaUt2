@@ -24,7 +24,7 @@ public class VanillaPaxelsModule extends BaseModule {
         DepRegistry.registerItem("iron_paxel", config.vanillaPaxels, IRON_PAXEL);
         DepRegistry.registerItem("golden_paxel", config.vanillaPaxels, GOLDEN_PAXEL);
         DepRegistry.registerItem("diamond_paxel", config.vanillaPaxels, DIAMOND_PAXEL);
-        if (!config.vanillaPaxels){
+        if (!config.vanillaPaxels) {
             RecipeUtil.removeRecipe("raut:diamond_paxel");
             RecipeUtil.removeRecipe("raut:golden_paxel");
             RecipeUtil.removeRecipe("raut:iron_paxel");

@@ -1,11 +1,11 @@
 package com.jfronny.raut.tools;
 
-import com.jfronny.raut.RaUt;
 import com.jfronny.raut.modules.MiscModule;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -20,7 +20,7 @@ public class AngelBlockItem extends BlockItem {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if (world.isClient){
+        if (world.isClient) {
             Vec3d head = user.getRotationVec(0f);
             double x = user.getX() + 3 * head.x;
             double y = 1.5 + user.getY() + 3 * head.y;
@@ -28,7 +28,7 @@ public class AngelBlockItem extends BlockItem {
             BlockPos pos = new BlockPos(x, y, z);
             if (world.canSetBlock(pos) && world.isAir(pos) || !world.getFluidState(pos).isEmpty()) {
                 world.setBlockState(pos, MiscModule.ANGEL_BLOCK.getDefaultState());
-                if (!user.abilities.creativeMode){
+                if (!user.abilities.creativeMode) {
                     user.getStackInHand(hand).decrement(1);
                 }
             }

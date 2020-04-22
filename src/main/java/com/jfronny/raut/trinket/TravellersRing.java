@@ -10,19 +10,14 @@ import dev.emi.trinkets.api.Slots;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.DispenserBlock;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
-import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -61,9 +56,9 @@ public class TravellersRing extends Item implements ITrinket {
     @Override
     public Multimap<String, EntityAttributeModifier> getTrinketModifiers(String group, String slot, UUID uuid, ItemStack stack) {
         Multimap<String, EntityAttributeModifier> map = HashMultimap.create();
-        if (slot.equals(Slots.RING)){
+        if (slot.equals(Slots.RING)) {
             map.put(StepHeightEntityAttributeMain.STEP_HEIGHT.getId(), new EntityAttributeModifier(uuid, "Step Height", 0.5F, EntityAttributeModifier.Operation.ADDITION));
-            map.put(EntityAttributes.MOVEMENT_SPEED.getId(), new EntityAttributeModifier(uuid, "Movement Speed", 1, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+            map.put(EntityAttributes.MOVEMENT_SPEED.getId(), new EntityAttributeModifier(uuid, "Movement Speed", 0.5F, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
         }
         return map;
     }
