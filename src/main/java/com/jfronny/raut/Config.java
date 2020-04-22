@@ -23,7 +23,7 @@ public class Config {
     @Comment(value = "Adds overpowered creative-only items. Only useful for debugging")
     public Boolean debug = false;
 
-    @Comment(value = "Enables replacing vanilla content for a more homogenous experience. Might interfere with other mods")
+    @Comment(value = "Enables replacing and modifying vanilla content for a more homogenous experience. Might interfere with other mods")
     public Boolean replaceVanilla = true;
 
     @Comment(value = "Enables REI Compat. Only disable if it causes problems")

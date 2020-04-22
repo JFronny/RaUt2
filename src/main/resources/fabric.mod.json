@@ -24,7 +24,9 @@
       "com.jfronny.raut.REICompat"
     ]
   },
-  "mixins": [],
+  "mixins": [
+    "raut.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=0.4.0",
     "fabric": "*"

@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.jfronny.raut.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  ],
+  "client": [
+    "MixinItemGroup"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
