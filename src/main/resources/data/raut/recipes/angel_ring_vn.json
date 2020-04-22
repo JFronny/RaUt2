@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#R#",
+    "g g",
+    " g "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:feather"
+    },
+    "R": {
+      "item": "minecraft:diamond"
+    },
+    "g": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "raut:angel_ring",
+    "count": 1
+  }
+}

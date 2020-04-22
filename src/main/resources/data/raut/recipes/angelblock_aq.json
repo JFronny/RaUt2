@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#B#",
+    "BgB",
+    "#B#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:feather"
+    },
+    "B": {
+      "item": "minecraft:black_wool"
+    },
+    "g": {
+      "item": "raut:aquilorite_gem"
+    }
+  },
+  "result": {
+    "item": "raut:angelblock",
+    "count": 1
+  }
+}

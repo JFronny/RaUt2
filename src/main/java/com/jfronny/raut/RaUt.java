@@ -9,7 +9,6 @@ import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class RaUt implements ModInitializer {
 
@@ -24,13 +23,13 @@ public class RaUt implements ModInitializer {
         logger.info("Initializing");
         logger.devInfo("Initializing config");
         config = ConfigManager.loadConfig(Config.class);
-
         modules.add(new AquiloriteModule());
         modules.add(new CottonModule());
         modules.add(new DebugModule());
         modules.add(new MiscModule());
         modules.add(new SteelModule());
         modules.add(new VanillaPaxelsModule());
+        modules.add(new TrinketsModule());
 
         for (BaseModule module : modules) {
             module.Init();

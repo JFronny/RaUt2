@@ -54,6 +54,12 @@ public class MiscModule extends BaseModule {
                 RecipeUtil.removeRecipe("raut:diamond_helmet");
                 RecipeUtil.removeRecipe("raut:diamond_leggings");
             }
+            if (config.aquilorite){
+                RecipeUtil.removeRecipe("raut:angelblock_vn");
+            }
+            else {
+                RecipeUtil.removeRecipe("raut:angelblock_aq");
+            }
         } else {
             logger.devInfo("unreg vanilla armor replacements");
             RecipeUtil.removeRecipe("raut:leather_horse_armor");
@@ -71,7 +77,8 @@ public class MiscModule extends BaseModule {
             logger.devInfo("unreg boost");
             RecipeUtil.removeRecipe("raut:boost");
             logger.devInfo("unreg angelblock");
-            RecipeUtil.removeRecipe("raut:angelblock");
+            RecipeUtil.removeRecipe("raut:angelblock_vn");
+            RecipeUtil.removeRecipe("raut:angelblock_aq");
             if (!config.aquilorite) {
                 logger.devInfo("unreg chainplate");
                 RecipeUtil.removeRecipe("raut:chain_plate");

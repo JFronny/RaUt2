@@ -24,6 +24,7 @@
   "item.raut.steel_shovel": "Steel Shovel",
   "item.raut.steel_sword": "Steel Sword",
   "attribute.name.generic.flyingSpeed": "Flying speed",
+  "attribute.name.generic.step-height-entity-attributes.step-height": "Step Height",
   "item.raut.cotton": "Cotton Seeds",
   "block.raut.cotton": "Cotton",
   "status.raut.disabled": "Disabled Item",
@@ -33,6 +34,9 @@
   "item.raut.golden_paxel": "Golden Paxel",
   "item.raut.diamond_paxel": "Diamond Paxel",
   "item.raut.aquilorite_paxel": "Aquilorite Paxel",
+  "item.raut.angel_ring": "Angel Ring",
+  "item.raut.traveller_ring": "Travellers Ring",
+  "item.raut.builders_ring": "Builders Ring",
   "item.raut.steel_paxel": "Steel Paxel",
   "block.raut.angelblock": "Angel Block"
 }

@@ -20,6 +20,9 @@ public class Config {
     @Comment(value = "Adds a new plant that can be used to farm string")
     public Boolean cotton = true;
 
+    @Comment(value = "Adds some trinkets")
+    public Boolean trinkets = true;
+
     @Comment(value = "Adds overpowered creative-only items. Only useful for debugging")
     public Boolean debug = false;
 
