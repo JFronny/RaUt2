@@ -1,0 +1,28 @@
+{
+  "replace": false,
+  "values": [ ],
+  "libcd": {
+    "entries": [
+      {
+        "when": [
+          {
+            "raut:config": "steel"
+          }
+        ],
+        "values": [
+          "raut:steel_nugget"
+        ]
+      },
+      {
+        "when": [
+          {
+            "libcd:mod_loaded": "cotton-resources"
+          }
+        ],
+        "values": [
+          "c:steel_nugget"
+        ]
+      }
+    ]
+  }
+}

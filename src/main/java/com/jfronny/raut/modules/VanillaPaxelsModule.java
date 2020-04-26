@@ -3,12 +3,11 @@ package com.jfronny.raut.modules;
 import com.jfronny.raut.api.BaseModule;
 import com.jfronny.raut.api.DepRegistry;
 import com.jfronny.raut.api.PaxelItem;
-import io.github.cottonmc.cotton.datapack.recipe.RecipeUtil;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ToolMaterials;
 
-import static com.jfronny.raut.RaUt.config;
+import static com.jfronny.raut.RaUt.cfg;
 
 public class VanillaPaxelsModule extends BaseModule {
     public static final PaxelItem WOODEN_PAXEL = new PaxelItem(ToolMaterials.WOOD, new Item.Settings().maxDamage(ToolMaterials.WOOD.getDurability() * 3).group(ItemGroup.TOOLS));
@@ -19,17 +18,10 @@ public class VanillaPaxelsModule extends BaseModule {
 
     @Override
     public void Init() {
-        DepRegistry.registerItem("wooden_paxel", config.vanillaPaxels, WOODEN_PAXEL);
-        DepRegistry.registerItem("stone_paxel", config.vanillaPaxels, STONE_PAXEL);
-        DepRegistry.registerItem("iron_paxel", config.vanillaPaxels, IRON_PAXEL);
-        DepRegistry.registerItem("golden_paxel", config.vanillaPaxels, GOLDEN_PAXEL);
-        DepRegistry.registerItem("diamond_paxel", config.vanillaPaxels, DIAMOND_PAXEL);
-        if (!config.vanillaPaxels) {
-            RecipeUtil.removeRecipe("raut:diamond_paxel");
-            RecipeUtil.removeRecipe("raut:golden_paxel");
-            RecipeUtil.removeRecipe("raut:iron_paxel");
-            RecipeUtil.removeRecipe("raut:stone_paxel");
-            RecipeUtil.removeRecipe("raut:wooden_paxel");
-        }
+        DepRegistry.registerItem("wooden_paxel", cfg.vanillaPaxels, WOODEN_PAXEL);
+        DepRegistry.registerItem("stone_paxel", cfg.vanillaPaxels, STONE_PAXEL);
+        DepRegistry.registerItem("iron_paxel", cfg.vanillaPaxels, IRON_PAXEL);
+        DepRegistry.registerItem("golden_paxel", cfg.vanillaPaxels, GOLDEN_PAXEL);
+        DepRegistry.registerItem("diamond_paxel", cfg.vanillaPaxels, DIAMOND_PAXEL);
     }
 }

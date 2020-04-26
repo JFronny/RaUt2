@@ -2,22 +2,22 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     " # ",
-    "LSL",
+    "LiL",
     " L "
   ],
   "key": {
     "#": {
-      "item": "minecraft:diamond"
+      "tag": "raut:aquilorite_gem"
     },
     "L": {
       "item": "minecraft:leather"
     },
-    "S": {
-      "item": "minecraft:sugar"
+    "i": {
+      "item": "minecraft:iron_ingot"
     }
   },
   "result": {
-    "item": "raut:traveller_ring",
+    "item": "raut:builders_ring",
     "count": 1
   }
 }

@@ -1,5 +1,6 @@
-package com.jfronny.raut;
+package com.jfronny.raut.integration;
 
+import com.jfronny.raut.RaUt;
 import com.jfronny.raut.api.DepRegistry;
 import me.shedaniel.rei.api.EntryRegistry;
 import me.shedaniel.rei.api.EntryStack;
@@ -13,7 +14,7 @@ import net.minecraft.util.Identifier;
 import java.util.List;
 
 import static com.jfronny.raut.RaUt.MOD_ID;
-import static com.jfronny.raut.RaUt.config;
+import static com.jfronny.raut.RaUt.cfg;
 
 public class REICompat implements REIPluginV0 {
     @Override
@@ -23,7 +24,7 @@ public class REICompat implements REIPluginV0 {
 
     @Override
     public void registerEntries(EntryRegistry entryRegistry) {
-        if (config.reiCompat) {
+        if (cfg.reiCompat) {
             RaUt.logger.info("Configuring resource visibility");
             recheckItemHiding(entryRegistry.getStacksList());
         }

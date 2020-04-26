@@ -21,7 +21,13 @@
     ],
     "server": [],
     "rei_plugins_v0": [
-      "com.jfronny.raut.REICompat"
+      "com.jfronny.raut.integration.REICompat"
+    ],
+    "libcd": [
+      "com.jfronny.raut.integration.LibCD"
+    ],
+    "modmenu": [
+      "com.jfronny.raut.integration.ModMenu"
     ]
   },
   "mixins": [

@@ -1,4 +1,4 @@
-package com.jfronny.raut.api;
+package com.jfronny.raut.mixin.interfacing;
 
 import net.minecraft.item.ItemStack;
 

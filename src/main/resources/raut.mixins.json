@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "com.jfronny.raut.mixin",
+  "package": "com.jfronny.raut.mixin.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
   ],

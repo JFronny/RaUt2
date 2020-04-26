@@ -2,8 +2,8 @@ package com.jfronny.raut.modules;
 
 import com.jfronny.raut.api.BaseModule;
 import com.jfronny.raut.api.DepRegistry;
-import com.jfronny.raut.api.ItemGroupExtension;
 import com.jfronny.raut.api.MiningLevel;
+import com.jfronny.raut.mixin.interfacing.ItemGroupExtension;
 import com.jfronny.raut.tools.AngelBlock;
 import com.jfronny.raut.tools.AngelBlockItem;
 import io.github.cottonmc.cotton.datapack.recipe.RecipeUtil;
@@ -25,8 +25,7 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
 
-import static com.jfronny.raut.RaUt.config;
-import static com.jfronny.raut.RaUt.logger;
+import static com.jfronny.raut.RaUt.cfg;
 
 public class MiscModule extends BaseModule {
     public static final Block BOOST = new Block(FabricBlockSettings.of(Material.GLASS).breakByHand(false).breakByTool(FabricToolTags.PICKAXES, MiningLevel.IRON).slipperiness(10).strength(3, 3).build());
@@ -35,31 +34,23 @@ public class MiscModule extends BaseModule {
 
     @Override
     public void Init() {
-        DepRegistry.registerBlock("boost", config.misc, BOOST);
-        DepRegistry.registerItem("chain_plate", config.misc || config.aquilorite, CHAIN_PLATE);
-        DepRegistry.registerBlock("angelblock", config.misc, ANGEL_BLOCK, new AngelBlockItem());
-        if (config.misc) {
-            if (config.replaceVanilla) {
-                logger.devInfo("unreg vanilla armor");
+        DepRegistry.registerBlock("boost", cfg.misc, BOOST);
+        DepRegistry.registerItem("chain_plate", cfg.misc || cfg.aquilorite, CHAIN_PLATE);
+        DepRegistry.registerBlock("angelblock", cfg.misc, ANGEL_BLOCK, new AngelBlockItem());
+        if (cfg.misc) {
+            if (cfg.replaceVanilla) {
                 RecipeUtil.removeRecipe("minecraft:leather_horse_armor");
                 RecipeUtil.removeRecipe("minecraft:diamond_boots");
                 RecipeUtil.removeRecipe("minecraft:diamond_chestplate");
                 RecipeUtil.removeRecipe("minecraft:diamond_helmet");
                 RecipeUtil.removeRecipe("minecraft:diamond_leggings");
             } else {
-                logger.devInfo("unreg diamond armor replacements");
                 RecipeUtil.removeRecipe("raut:diamond_boots");
                 RecipeUtil.removeRecipe("raut:diamond_chestplate");
                 RecipeUtil.removeRecipe("raut:diamond_helmet");
                 RecipeUtil.removeRecipe("raut:diamond_leggings");
             }
-            if (config.aquilorite) {
-                RecipeUtil.removeRecipe("raut:angelblock_vn");
-            } else {
-                RecipeUtil.removeRecipe("raut:angelblock_aq");
-            }
         } else {
-            logger.devInfo("unreg vanilla armor replacements");
             RecipeUtil.removeRecipe("raut:leather_horse_armor");
             RecipeUtil.removeRecipe("raut:diamond_horse_armor");
             RecipeUtil.removeRecipe("raut:golden_horse_armor");
@@ -72,22 +63,13 @@ public class MiscModule extends BaseModule {
             RecipeUtil.removeRecipe("raut:diamond_chestplate");
             RecipeUtil.removeRecipe("raut:diamond_helmet");
             RecipeUtil.removeRecipe("raut:diamond_leggings");
-            logger.devInfo("unreg boost");
-            RecipeUtil.removeRecipe("raut:boost");
-            logger.devInfo("unreg angelblock");
-            RecipeUtil.removeRecipe("raut:angelblock_vn");
-            RecipeUtil.removeRecipe("raut:angelblock_aq");
-            if (!config.aquilorite) {
-                logger.devInfo("unreg chainplate");
-                RecipeUtil.removeRecipe("raut:chain_plate");
-            }
         }
     }
 
     @Override
     public void onLootTableLoading(ResourceManager resourceManager, LootManager lootManager, Identifier id, FabricLootSupplierBuilder supplier, LootTableLoadingCallback.LootTableSetter setter) {
         if ((id.equals(new Identifier("blocks/grass")) || id.equals(new Identifier("blocks/fern")) || id.equals(new Identifier("blocks/tall_grass")))) {
-            if (config.misc) {
+            if (cfg.misc) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder
                         .builder()
                         .withRolls(ConstantLootTableRange.create(1))
@@ -102,30 +84,45 @@ public class MiscModule extends BaseModule {
 
     @Override
     public void InitClient() {
-        if (config.replaceVanilla) {
-            logger.devInfo("add extra items to creative menus");
+        if (cfg.replaceVanilla) {
+            ItemGroupExtension SEARCH = (ItemGroupExtension) ItemGroup.SEARCH;
 
             ItemGroupExtension REDSTONE = (ItemGroupExtension) ItemGroup.REDSTONE;
             REDSTONE.addStack(new ItemStack(Items.COMMAND_BLOCK));
+            SEARCH.addStack(new ItemStack(Items.COMMAND_BLOCK));
             REDSTONE.addStack(new ItemStack(Items.CHAIN_COMMAND_BLOCK));
+            SEARCH.addStack(new ItemStack(Items.CHAIN_COMMAND_BLOCK));
             REDSTONE.addStack(new ItemStack(Items.REPEATING_COMMAND_BLOCK));
+            SEARCH.addStack(new ItemStack(Items.REPEATING_COMMAND_BLOCK));
             REDSTONE.addStack(new ItemStack(Items.STRUCTURE_BLOCK));
+            SEARCH.addStack(new ItemStack(Items.STRUCTURE_BLOCK));
             REDSTONE.addStack(new ItemStack(Items.JIGSAW));
+            SEARCH.addStack(new ItemStack(Items.JIGSAW));
 
             ItemGroupExtension TRANSPORT = (ItemGroupExtension) ItemGroup.TRANSPORTATION;
             TRANSPORT.addStack(new ItemStack(Items.COMMAND_BLOCK_MINECART));
+            SEARCH.addStack(new ItemStack(Items.COMMAND_BLOCK_MINECART));
 
             ItemGroupExtension DECORATIONS = (ItemGroupExtension) ItemGroup.DECORATIONS;
             DECORATIONS.addStack(new ItemStack(Items.DRAGON_EGG));
+            SEARCH.addStack(new ItemStack(Items.DRAGON_EGG));
             DECORATIONS.addStack(new ItemStack(Items.BARRIER));
+            SEARCH.addStack(new ItemStack(Items.BARRIER));
             DECORATIONS.addStack(new ItemStack(Items.SPAWNER));
+            SEARCH.addStack(new ItemStack(Items.SPAWNER));
             DECORATIONS.addStack(new ItemStack(Items.STRUCTURE_VOID));
+            SEARCH.addStack(new ItemStack(Items.STRUCTURE_VOID));
 
             ItemGroupExtension MISC = (ItemGroupExtension) ItemGroup.MISC;
             MISC.addStack(new ItemStack(Items.DEBUG_STICK));
+            SEARCH.addStack(new ItemStack(Items.DEBUG_STICK));
             MISC.addStack(new ItemStack(Items.FILLED_MAP));
+            SEARCH.addStack(new ItemStack(Items.FILLED_MAP));
             MISC.addStack(new ItemStack(Items.WRITTEN_BOOK));
+            SEARCH.addStack(new ItemStack(Items.WRITTEN_BOOK));
             MISC.addStack(new ItemStack(Items.KNOWLEDGE_BOOK));
+            SEARCH.addStack(new ItemStack(Items.KNOWLEDGE_BOOK));
+
         }
     }
 }

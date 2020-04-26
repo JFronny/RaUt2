@@ -19,6 +19,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
+//Some code from https://github.com/MarioAndWeegee3/Flax-Mod-Fabric/blob/master/src/main/java/marioandweegee3/flax/blocks/FlaxCrop.java
 public class CottonCrop extends CropBlock {
     public CottonCrop() {
         super(FabricBlockSettings.copy(Blocks.WHEAT).build());

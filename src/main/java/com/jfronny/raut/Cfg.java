@@ -1,15 +1,18 @@
 package com.jfronny.raut;
 
-import blue.endless.jankson.Comment;
-import io.github.cottonmc.cotton.config.annotations.ConfigFile;
+import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
+import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
+import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry;
+import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
+import net.fabricmc.loader.api.FabricLoader;
 
-@ConfigFile(name = "RaUt2")
-public class Config {
+@Config(name = "RaUt2")
+public class Cfg implements ConfigData {
     @Comment(value = "Miscellaneous content. Includes a recipe for chainmail/horse armor using chain plates, grass dropping melon/pumpkin/beetroot seeds, an angel block and a block that shoots you across your world")
     public Boolean misc = true;
 
     @Comment(value = "Adds paxels for vanilla resources. Disable if another mod does that already.")
-    public Boolean vanillaPaxels = true;
+    public Boolean vanillaPaxels = !FabricLoader.getInstance().isModLoaded("variablepaxels");
 
     @Comment(value = "Adds steel as a resource in between iron and diamonds. Contains processing, ingots, nuggets, blocks, armor and tools")
     public Boolean steel = true;
@@ -18,10 +21,13 @@ public class Config {
     public Boolean aquilorite = true;
 
     @Comment(value = "Adds a new plant that can be used to farm string")
-    public Boolean cotton = true;
+    public Boolean cotton = !FabricLoader.getInstance().isModLoaded("flax");
+
+    @Comment(value = "Adds a new plant that can be used to get random potion effects")
+    public Boolean crystalPlant = true;
 
     @Comment(value = "Adds some trinkets")
-    public Boolean trinkets = true;
+    public Boolean trinkets = FabricLoader.getInstance().isModLoaded("trinkets");
 
     @Comment(value = "Adds overpowered creative-only items. Only useful for debugging")
     public Boolean debug = false;

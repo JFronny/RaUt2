@@ -1,8 +1,4 @@
 {
-  "block.raut.aquilorite_ore": "Aquilorite Ore",
-  "block.raut.aquilorite_block": "Aquilorite Block",
-  "block.raut.aquilorite_block_hardened": "Aquilorite Block (hardened)",
-  "block.raut.boost": "Boost",
   "item.raut.aquilorite_gem": "Aquilorite Gem",
   "item.raut.aquilorite_boots": "Aquilorite Boots",
   "item.raut.aquilorite_chestplate": "Aquilorite Chestplate",
@@ -13,7 +9,6 @@
   "item.raut.raw_steel": "Raw Steel",
   "item.raut.steel_ingot": "Steel Ingot",
   "item.raut.steel_nugget": "Steel Nugget",
-  "block.raut.steel_block": "Steel Block",
   "item.raut.steel_boots": "Steel Boots",
   "item.raut.steel_chestplate": "Steel Chestplate",
   "item.raut.steel_helmet": "Steel Helmet",
@@ -23,11 +18,9 @@
   "item.raut.steel_pickaxe": "Steel Pickaxe",
   "item.raut.steel_shovel": "Steel Shovel",
   "item.raut.steel_sword": "Steel Sword",
-  "attribute.name.generic.flyingSpeed": "Flying speed",
-  "attribute.name.generic.step-height-entity-attributes.step-height": "Step Height",
   "item.raut.cotton": "Cotton Seeds",
-  "block.raut.cotton": "Cotton",
-  "status.raut.disabled": "Disabled Item",
+  "item.raut.crystal_plant": "Crystal Plant Seeds",
+  "item.raut.crystal": "Potion Crystal",
   "item.raut.wooden_paxel": "Wooden Paxel",
   "item.raut.stone_paxel": "Stone Paxel",
   "item.raut.iron_paxel": "Iron Paxel",
@@ -38,5 +31,29 @@
   "item.raut.traveller_ring": "Travellers Ring",
   "item.raut.builders_ring": "Builders Ring",
   "item.raut.steel_paxel": "Steel Paxel",
-  "block.raut.angelblock": "Angel Block"
+
+  "attribute.name.generic.flyingSpeed": "Flying speed",
+  "attribute.name.generic.step-height-entity-attributes.step-height": "Step Height",
+
+  "status.raut.disabled": "Disabled Item",
+
+  "block.raut.angelblock": "Angel Block",
+  "block.raut.cotton": "Cotton",
+  "block.raut.crystal_plant": "Crystal Plant",
+  "block.raut.steel_block": "Steel Block",
+  "block.raut.aquilorite_ore": "Aquilorite Ore",
+  "block.raut.aquilorite_block": "Aquilorite Block",
+  "block.raut.aquilorite_block_hardened": "Aquilorite Block (hardened)",
+  "block.raut.boost": "Boost",
+
+  "text.autoconfig.RaUt2.option.misc": "Miscellaneous",
+  "text.autoconfig.RaUt2.option.vanillaPaxels": "Vanilla Paxels",
+  "text.autoconfig.RaUt2.option.steel": "Steel",
+  "text.autoconfig.RaUt2.option.aquilorite": "Aquilorite",
+  "text.autoconfig.RaUt2.option.cotton": "Cotton",
+  "text.autoconfig.RaUt2.option.crystalPlant": "Crystal Plants",
+  "text.autoconfig.RaUt2.option.trinkets": "Trinkets",
+  "text.autoconfig.RaUt2.option.debug": "Debug",
+  "text.autoconfig.RaUt2.option.replaceVanilla": "Modify/Replace vanilla",
+  "text.autoconfig.RaUt2.option.reiCompat": "REI Compatibility"
 }

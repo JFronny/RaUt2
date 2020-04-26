@@ -1,0 +1,30 @@
+{
+  "replace": false,
+  "values": [],
+  "libcd": {
+    "entries": [
+      {
+        "when": [
+          {
+            "libcd:not": {
+              "raut:config": "aquilorite"
+            }
+          }
+        ],
+        "values": [
+          "minecraft:diamond"
+        ]
+      },
+      {
+        "when": [
+          {
+            "raut:config": "aquilorite"
+          }
+        ],
+        "values": [
+          "raut:aquilorite_gem"
+        ]
+      }
+    ]
+  }
+}

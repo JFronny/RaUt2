@@ -1,23 +1,23 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "#B#",
-    "BgB",
-    "#B#"
+    "#R#",
+    "g g",
+    " g "
   ],
   "key": {
     "#": {
       "item": "minecraft:feather"
     },
-    "B": {
-      "item": "minecraft:black_wool"
+    "R": {
+      "tag": "raut:aquilorite_gem"
     },
     "g": {
-      "item": "raut:aquilorite_gem"
+      "item": "minecraft:gold_ingot"
     }
   },
   "result": {
-    "item": "raut:angelblock",
+    "item": "raut:angel_ring",
     "count": 1
   }
 }

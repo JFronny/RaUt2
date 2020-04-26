@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-      "item": "raut:aquilorite_gem"
+      "tag": "raut:aquilorite_gem"
     },
     "i": {
-      "item": "raut:steel_ingot"
+      "tag": "fabric:steel_ingot"
     }
   },
   "result": {

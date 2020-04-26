@@ -1,5 +1,6 @@
 package com.jfronny.raut.modules;
 
+import com.jfronny.raut.RaUt;
 import com.jfronny.raut.api.BaseModule;
 import com.jfronny.raut.api.DepRegistry;
 import com.jfronny.raut.crops.CottonCrop;
@@ -9,6 +10,7 @@ import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.FabricLootSupplierBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.BlockItem;
@@ -20,9 +22,9 @@ import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 
-import static com.jfronny.raut.RaUt.config;
-import static com.jfronny.raut.RaUt.logger;
+import static com.jfronny.raut.RaUt.cfg;
 
 public class CottonModule extends BaseModule {
     public static final Block COTTON_CROP = new CottonCrop();
@@ -30,9 +32,8 @@ public class CottonModule extends BaseModule {
 
     @Override
     public void Init() {
-        DepRegistry.registerBlock("cotton", config.cotton, COTTON_CROP, COTTON_SEED);
-        if (!config.cotton) {
-            logger.devInfo("unreg cotton->string");
+        DepRegistry.registerBlock("cotton", cfg.cotton, COTTON_CROP, COTTON_SEED);
+        if (!cfg.cotton) {
             RecipeUtil.removeRecipe("raut:cotton_string");
         }
     }
@@ -40,7 +41,7 @@ public class CottonModule extends BaseModule {
     @Override
     public void onLootTableLoading(ResourceManager resourceManager, LootManager lootManager, Identifier id, FabricLootSupplierBuilder supplier, LootTableLoadingCallback.LootTableSetter setter) {
         if ((id.equals(new Identifier("blocks/grass")) || id.equals(new Identifier("blocks/fern")) || id.equals(new Identifier("blocks/tall_grass")))) {
-            if (config.cotton) {
+            if (cfg.cotton) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder
                         .builder()
                         .withRolls(ConstantLootTableRange.create(1))
