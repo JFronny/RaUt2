@@ -17,7 +17,6 @@ import net.minecraft.world.World;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.Callable;
 
 import static com.jfronny.raut.RaUt.MOD_ID;
 

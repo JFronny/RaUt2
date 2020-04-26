@@ -1,6 +1,5 @@
 package com.jfronny.raut.modules;
 
-import com.jfronny.raut.RaUt;
 import com.jfronny.raut.api.BaseModule;
 import com.jfronny.raut.api.DepRegistry;
 import com.jfronny.raut.crops.CottonCrop;
@@ -10,7 +9,6 @@ import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.FabricLootSupplierBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.BlockItem;
@@ -22,7 +20,6 @@ import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 
 import static com.jfronny.raut.RaUt.cfg;
 

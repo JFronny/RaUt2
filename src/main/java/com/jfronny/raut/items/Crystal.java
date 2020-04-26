@@ -12,12 +12,38 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.lang.reflect.Field;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class Crystal extends Item {
     private static final List<StatusEffect> positiveEffects;
     private static final List<StatusEffect> negativeEffects;
     private static final Random rnd;
+
+    static {
+        positiveEffects = new ArrayList<>();
+        negativeEffects = new ArrayList<>();
+        rnd = new Random();
+        for (Field field : StatusEffects.class.getFields()) {
+            if (StatusEffect.class.equals(field.getType())) {
+                Object effect = null;
+                try {
+                    effect = field.get(null);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+                if (effect instanceof StatusEffect) {
+                    StatusEffect tmp = (StatusEffect) effect;
+                    if (tmp.isBeneficial())
+                        positiveEffects.add((StatusEffect) effect);
+                    else
+                        negativeEffects.add((StatusEffect) effect);
+                }
+            }
+        }
+    }
+
     public Crystal() {
         super(new Item.Settings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.1f).alwaysEdible().build()));
     }
@@ -26,11 +52,11 @@ public class Crystal extends Item {
         ItemStack itemStack = super.finishUsing(stack, world, user);
         if (!world.isClient) {
             if (!(user.getActiveStatusEffects().keySet().containsAll(positiveEffects)
-                    && user.getActiveStatusEffects().keySet().containsAll(positiveEffects))){
+                    && user.getActiveStatusEffects().keySet().containsAll(positiveEffects))) {
                 List<StatusEffect> effects = !user.getActiveStatusEffects().keySet().containsAll(negativeEffects)
-                && (user.getActiveStatusEffects().keySet().containsAll(positiveEffects)
+                        && (user.getActiveStatusEffects().keySet().containsAll(positiveEffects)
                         || rnd.nextInt(5) == 0) ? negativeEffects : positiveEffects;
-                if (!user.getActiveStatusEffects().keySet().containsAll(effects)){
+                if (!user.getActiveStatusEffects().keySet().containsAll(effects)) {
                     List<StatusEffect> eff = new ArrayList<>(effects);
                     eff.removeAll(user.getActiveStatusEffects().keySet());
                     StatusEffect effect = eff.get(rnd.nextInt(eff.size()));
@@ -41,32 +67,9 @@ public class Crystal extends Item {
                 }
             }
             if (user instanceof PlayerEntity) {
-                ((PlayerEntity)user).getItemCooldownManager().set(this, 10);
+                ((PlayerEntity) user).getItemCooldownManager().set(this, 10);
             }
         }
         return itemStack;
-    }
-
-    static {
-        positiveEffects = new ArrayList<>();
-        negativeEffects = new ArrayList<>();
-        rnd = new Random();
-        for (Field field : StatusEffects.class.getFields()) {
-            if (StatusEffect.class.equals(field.getType())){
-                Object effect = null;
-                try {
-                    effect = field.get(null);
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                }
-                if (effect instanceof StatusEffect){
-                    StatusEffect tmp = (StatusEffect) effect;
-                    if (tmp.isBeneficial())
-                        positiveEffects.add((StatusEffect) effect);
-                    else
-                        negativeEffects.add((StatusEffect) effect);
-                }
-            }
-        }
     }
 }
