@@ -12,7 +12,7 @@
       "item": "minecraft:iron_ingot"
     },
     "R": {
-      "item": "raut:chain_plate"
+      "tag": "raut:chain_plate"
     }
   },
   "result": {

@@ -34,7 +34,7 @@ public class AngelRing extends Item implements ITrinket {
     private final AbilitySource abilitySource = Pal.getAbilitySource(RaUt.MOD_ID, "angel_ring");
 
     public AngelRing() {
-        super(new Item.Settings().group(ItemGroup.TOOLS));
+        super(new Item.Settings().group(ItemGroup.TOOLS).maxCount(1));
         DispenserBlock.registerBehavior(this, TRINKET_DISPENSER_BEHAVIOR);
     }
 

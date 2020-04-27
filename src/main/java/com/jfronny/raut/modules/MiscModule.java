@@ -34,11 +34,11 @@ public class MiscModule extends BaseModule {
 
     @Override
     public void Init() {
-        DepRegistry.registerBlock("boost", cfg.misc, BOOST);
-        DepRegistry.registerItem("chain_plate", cfg.misc || cfg.aquilorite, CHAIN_PLATE);
-        DepRegistry.registerBlock("angelblock", cfg.misc, ANGEL_BLOCK, new AngelBlockItem());
-        if (cfg.misc) {
-            if (cfg.replaceVanilla) {
+        DepRegistry.registerBlock("boost", cfg.misc.enabled && cfg.misc.boostBlock, BOOST);
+        DepRegistry.registerItem("chain_plate", cfg.misc.enabled && cfg.misc.chainPlate, CHAIN_PLATE);
+        DepRegistry.registerBlock("angelblock", cfg.misc.enabled && cfg.misc.angelBlock, ANGEL_BLOCK, new AngelBlockItem());
+        if (cfg.misc.enabled) {
+            if (cfg.misc.betterDiamondRecipe) {
                 RecipeUtil.removeRecipe("minecraft:leather_horse_armor");
                 RecipeUtil.removeRecipe("minecraft:diamond_boots");
                 RecipeUtil.removeRecipe("minecraft:diamond_chestplate");
@@ -49,6 +49,18 @@ public class MiscModule extends BaseModule {
                 RecipeUtil.removeRecipe("raut:diamond_chestplate");
                 RecipeUtil.removeRecipe("raut:diamond_helmet");
                 RecipeUtil.removeRecipe("raut:diamond_leggings");
+            }
+            if (!cfg.misc.chainmailRecipe){
+                RecipeUtil.removeRecipe("raut:chainmail_boots");
+                RecipeUtil.removeRecipe("raut:chainmail_chestplate");
+                RecipeUtil.removeRecipe("raut:chainmail_helmet");
+                RecipeUtil.removeRecipe("raut:chainmail_leggings");
+            }
+            if (!cfg.misc.horseArmorRecipe){
+                RecipeUtil.removeRecipe("raut:leather_horse_armor");
+                RecipeUtil.removeRecipe("raut:diamond_horse_armor");
+                RecipeUtil.removeRecipe("raut:golden_horse_armor");
+                RecipeUtil.removeRecipe("raut:iron_horse_armor");
             }
         } else {
             RecipeUtil.removeRecipe("raut:leather_horse_armor");
@@ -69,7 +81,7 @@ public class MiscModule extends BaseModule {
     @Override
     public void onLootTableLoading(ResourceManager resourceManager, LootManager lootManager, Identifier id, FabricLootSupplierBuilder supplier, LootTableLoadingCallback.LootTableSetter setter) {
         if ((id.equals(new Identifier("blocks/grass")) || id.equals(new Identifier("blocks/fern")) || id.equals(new Identifier("blocks/tall_grass")))) {
-            if (cfg.misc) {
+            if (cfg.misc.enabled && cfg.misc.moreSeeds) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder
                         .builder()
                         .withRolls(ConstantLootTableRange.create(1))
@@ -84,7 +96,7 @@ public class MiscModule extends BaseModule {
 
     @Override
     public void InitClient() {
-        if (cfg.replaceVanilla) {
+        if (cfg.misc.enabled && cfg.misc.extraCreativeItems) {
             ItemGroupExtension SEARCH = (ItemGroupExtension) ItemGroup.SEARCH;
 
             ItemGroupExtension REDSTONE = (ItemGroupExtension) ItemGroup.REDSTONE;
@@ -122,7 +134,6 @@ public class MiscModule extends BaseModule {
             SEARCH.addStack(new ItemStack(Items.WRITTEN_BOOK));
             MISC.addStack(new ItemStack(Items.KNOWLEDGE_BOOK));
             SEARCH.addStack(new ItemStack(Items.KNOWLEDGE_BOOK));
-
         }
     }
 }

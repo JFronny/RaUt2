@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#R#",
+    "RBR",
+    "#R#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:leather"
+    },
+    "R": {
+      "item": "raut:aquilorite_gem"
+    },
+    "B": {
+      "item": "raut:backpack",
+      "data": {
+        "deny": {
+          "Size": "$1.."
+        }
+      }
+    }
+  },
+  "result": {
+    "item": "raut:backpack",
+    "count": 1,
+    "data": {
+      "$": "$ i0",
+      "Size": 1
+    }
+  }
+}

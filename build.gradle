@@ -39,6 +39,9 @@ dependencies {
     include "io.github.cottonmc.cotton:cotton:${project.cotton_version}"
     modImplementation "io.github.cottonmc.cotton:cotton:${project.cotton_version}"
 
+    //LibGUI
+    modImplementation "io.github.cottonmc:LibGui:${project.libgui_version}"
+
     //REI
     modCompile("me.shedaniel:RoughlyEnoughItems:3.6.4") {
         exclude module: "modmenu"
@@ -61,6 +64,11 @@ dependencies {
     }
     modImplementation "com.github.emilyploszaj:step-height-entity-attribute:v1.0.0"
     include "com.github.emilyploszaj:step-height-entity-attribute:v1.0.0"
+
+    //Nbt Crafting
+    modImplementation ("com.github.siphalor:nbt-crafting:1.15-2.0-SNAPSHOT") {
+        transitive = false;
+    }
 }
 
 processResources {

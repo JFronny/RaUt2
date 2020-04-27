@@ -1,0 +1,30 @@
+{
+  "replace": false,
+  "values": [],
+  "libcd": {
+    "entries": [
+      {
+        "when": [
+          {
+            "libcd:not": {
+              "raut:config": "misc.chainPlate"
+            }
+          }
+        ],
+        "values": [
+          "minecraft:iron_ingot"
+        ]
+      },
+      {
+        "when": [
+          {
+            "raut:config": "misc.chainPlate"
+          }
+        ],
+        "values": [
+          "raut:chain_plate"
+        ]
+      }
+    ]
+  }
+}

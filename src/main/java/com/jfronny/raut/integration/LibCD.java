@@ -21,7 +21,24 @@ public class LibCD implements LibCDInitializer {
             }
             switch ((String) s) {
                 case "misc":
-                    return RaUt.cfg.misc;
+                case "misc.enabled":
+                    return RaUt.cfg.misc.enabled;
+                case "misc.chainPlate":
+                    return RaUt.cfg.misc.chainPlate;
+                case "misc.horseArmorRecipe":
+                    return RaUt.cfg.misc.horseArmorRecipe;
+                case "misc.chainmailRecipe":
+                    return RaUt.cfg.misc.chainmailRecipe;
+                case "misc.betterDiamondRecipe":
+                    return RaUt.cfg.misc.betterDiamondRecipe;
+                case "misc.extraCreativeItems":
+                    return RaUt.cfg.misc.extraCreativeItems;
+                case "misc.moreSeeds":
+                    return RaUt.cfg.misc.moreSeeds;
+                case "misc.angelBlock":
+                    return RaUt.cfg.misc.angelBlock;
+                case "misc.boostBlock":
+                    return RaUt.cfg.misc.boostBlock;
                 case "vanillaPaxels":
                     return RaUt.cfg.vanillaPaxels;
                 case "steel":
@@ -36,8 +53,6 @@ public class LibCD implements LibCDInitializer {
                     return RaUt.cfg.trinkets;
                 case "debug":
                     return RaUt.cfg.debug;
-                case "replaceVanilla":
-                    return RaUt.cfg.replaceVanilla;
                 case "reiCompat":
                     return RaUt.cfg.reiCompat;
                 default:

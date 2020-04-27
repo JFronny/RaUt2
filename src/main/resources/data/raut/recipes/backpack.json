@@ -1,19 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " ##",
-    "#R#"
+    "# #",
+    "#R#",
+    "# #"
   ],
   "key": {
     "#": {
       "item": "minecraft:leather"
     },
     "R": {
-      "tag": "raut:chain_plate"
+      "item": "raut:aquilorite_gem"
     }
   },
   "result": {
-    "item": "minecraft:leather_horse_armor",
+    "item": "raut:backpack",
+    "nbt": "{Size:0}",
     "count": 1
   }
 }

@@ -2,13 +2,16 @@ package com.jfronny.raut;
 
 import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
 import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
+import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry;
 import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
 import net.fabricmc.loader.api.FabricLoader;
 
 @Config(name = "RaUt2")
 public class Cfg implements ConfigData {
     @Comment(value = "Miscellaneous content. Includes a recipe for chainmail/horse armor using chain plates, grass dropping melon/pumpkin/beetroot seeds, an angel block and a block that shoots you across your world")
-    public Boolean misc = true;
+    @ConfigEntry.Gui.CollapsibleObject
+    @ConfigEntry.Category("Misc")
+    public MiscModule misc = new MiscModule();
 
     @Comment(value = "Adds paxels for vanilla resources. Disable if another mod does that already.")
     public Boolean vanillaPaxels = !FabricLoader.getInstance().isModLoaded("variablepaxels");
@@ -31,9 +34,21 @@ public class Cfg implements ConfigData {
     @Comment(value = "Adds overpowered creative-only items. Only useful for debugging")
     public Boolean debug = false;
 
-    @Comment(value = "Enables replacing and modifying vanilla content for a more homogenous experience. Might interfere with other mods")
-    public Boolean replaceVanilla = true;
+    //@Comment(value = "Enables replacing and modifying vanilla content for a more homogenous experience. Might interfere with other mods")
+    //public Boolean replaceVanilla = true;
 
     @Comment(value = "Enables REI Compat. Only disable if it causes problems")
     public Boolean reiCompat = true;
+
+    public static class MiscModule {
+        public Boolean enabled = true;
+        public Boolean chainmailRecipe = enabled;
+        public Boolean horseArmorRecipe = enabled;
+        public Boolean moreSeeds = enabled;
+        public Boolean angelBlock = enabled;
+        public Boolean boostBlock = enabled;
+        public Boolean chainPlate = enabled;
+        public Boolean betterDiamondRecipe = enabled;
+        public Boolean extraCreativeItems = enabled;
+    }
 }

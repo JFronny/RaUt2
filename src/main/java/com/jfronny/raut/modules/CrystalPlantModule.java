@@ -1,9 +1,11 @@
 package com.jfronny.raut.modules;
 
+import com.jfronny.raut.RaUt;
 import com.jfronny.raut.api.BaseModule;
 import com.jfronny.raut.api.DepRegistry;
 import com.jfronny.raut.crops.CrystalPlant;
 import com.jfronny.raut.items.Crystal;
+import io.github.cottonmc.cotton.datapack.recipe.RecipeUtil;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.FabricLootSupplierBuilder;
@@ -32,6 +34,10 @@ public class CrystalPlantModule extends BaseModule {
     public void Init() {
         DepRegistry.registerBlock("crystal_plant", cfg.crystalPlant, CRYSTAL_PLANT, CRYSTAL_PLANT_SEED);
         DepRegistry.registerItem("crystal", cfg.crystalPlant, CRYSTAL);
+        if (!cfg.crystalPlant){
+            RecipeUtil.removeRecipe("raut:crystal_apple");
+            RecipeUtil.removeRecipe("raut:crystal_enchanted_apple");
+        }
     }
 
     @Override

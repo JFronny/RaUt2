@@ -2,16 +2,19 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "###",
-    "# #",
-    "# #"
+    "#A#",
+    "###"
   ],
   "key": {
     "#": {
-      "tag": "raut:chain_plate"
+      "item": "raut:crystal"
+    },
+    "A": {
+      "item": "minecraft:apple"
     }
   },
   "result": {
-    "item": "minecraft:chainmail_leggings",
+    "item": "minecraft:golden_apple",
     "count": 1
   }
 }

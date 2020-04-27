@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#R#",
+    "NBN",
+    "#R#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:leather"
+    },
+    "R": {
+      "item": "raut:aquilorite_gem"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    },
+    "B": {
+      "item": "raut:backpack",
+      "data": {
+        "require": {
+          "Size": 1
+        }
+      }
+    }
+  },
+  "result": {
+    "item": "raut:backpack",
+    "count": 1,
+    "data": {
+      "$": "$ i0",
+      "Size": 2
+    }
+  }
+}

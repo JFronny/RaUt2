@@ -34,7 +34,7 @@ import java.util.UUID;
 //some code from github.com/emilyploszaj/bunch-o-trinkets
 public class TravellersRing extends Item implements ITrinket {
     public TravellersRing() {
-        super(new Item.Settings().group(ItemGroup.TOOLS));
+        super(new Item.Settings().group(ItemGroup.TOOLS).maxCount(1));
         DispenserBlock.registerBehavior(this, TRINKET_DISPENSER_BEHAVIOR);
     }
 

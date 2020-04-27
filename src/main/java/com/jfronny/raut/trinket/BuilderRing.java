@@ -33,7 +33,7 @@ import java.util.UUID;
 //some code from github.com/emilyploszaj/bunch-o-trinkets
 public class BuilderRing extends Item implements ITrinket {
     public BuilderRing() {
-        super(new Item.Settings().group(ItemGroup.TOOLS));
+        super(new Item.Settings().group(ItemGroup.TOOLS).maxCount(1));
         DispenserBlock.registerBehavior(this, TRINKET_DISPENSER_BEHAVIOR);
     }
 
