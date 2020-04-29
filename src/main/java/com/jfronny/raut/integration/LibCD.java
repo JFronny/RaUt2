@@ -24,21 +24,21 @@ public class LibCD implements LibCDInitializer {
                 case "misc.enabled":
                     return RaUt.cfg.misc.enabled;
                 case "misc.chainPlate":
-                    return RaUt.cfg.misc.chainPlate;
+                    return RaUt.cfg.misc.enabled && RaUt.cfg.misc.chainPlate;
                 case "misc.horseArmorRecipe":
-                    return RaUt.cfg.misc.horseArmorRecipe;
+                    return RaUt.cfg.misc.enabled && RaUt.cfg.misc.horseArmorRecipe;
                 case "misc.chainmailRecipe":
-                    return RaUt.cfg.misc.chainmailRecipe;
+                    return RaUt.cfg.misc.enabled && RaUt.cfg.misc.chainmailRecipe;
                 case "misc.betterDiamondRecipe":
-                    return RaUt.cfg.misc.betterDiamondRecipe;
+                    return RaUt.cfg.misc.enabled && RaUt.cfg.misc.betterDiamondRecipe;
                 case "misc.extraCreativeItems":
-                    return RaUt.cfg.misc.extraCreativeItems;
+                    return RaUt.cfg.misc.enabled && RaUt.cfg.misc.extraCreativeItems;
                 case "misc.moreSeeds":
-                    return RaUt.cfg.misc.moreSeeds;
+                    return RaUt.cfg.misc.enabled && RaUt.cfg.misc.moreSeeds;
                 case "misc.angelBlock":
-                    return RaUt.cfg.misc.angelBlock;
+                    return RaUt.cfg.misc.enabled && RaUt.cfg.misc.angelBlock;
                 case "misc.boostBlock":
-                    return RaUt.cfg.misc.boostBlock;
+                    return RaUt.cfg.misc.enabled && RaUt.cfg.misc.boostBlock;
                 case "vanillaPaxels":
                     return RaUt.cfg.vanillaPaxels;
                 case "steel":

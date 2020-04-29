@@ -34,7 +34,7 @@ public class PaxelItem extends MiningToolItem {
     ToolMaterial material;
 
     public PaxelItem(ToolMaterial material, Settings settings) {
-        super(8F, -3.1F, material, EFFECTIVE_BLOCKS, settings);
+        super(3F, -3.1F, material, EFFECTIVE_BLOCKS, settings);
         this.material = material;
     }
 

@@ -54,7 +54,6 @@
   "block.raut.aquilorite_block_hardened": "Aquilorite Block (hardened)",
   "block.raut.boost": "Boost",
 
-  "text.autoconfig.RaUt2.option.misc": "Miscellaneous",
   "text.autoconfig.RaUt2.option.vanillaPaxels": "Vanilla Paxels",
   "text.autoconfig.RaUt2.option.steel": "Steel",
   "text.autoconfig.RaUt2.option.aquilorite": "Aquilorite",
@@ -63,5 +62,16 @@
   "text.autoconfig.RaUt2.option.trinkets": "Trinkets",
   "text.autoconfig.RaUt2.option.debug": "Debug",
   "text.autoconfig.RaUt2.option.replaceVanilla": "Modify/Replace vanilla",
-  "text.autoconfig.RaUt2.option.reiCompat": "REI Compatibility"
+  "text.autoconfig.RaUt2.option.reiCompat": "REI Compatibility",
+  "text.autoconfig.RaUt2.option.misc.enabled": "Enables the module. Disabling all other values",
+  "text.autoconfig.RaUt2.option.misc.chainmailRecipe": "Chainmail Recipe",
+  "text.autoconfig.RaUt2.option.misc.horseArmorRecipe": "Horse Armor Recipe",
+  "text.autoconfig.RaUt2.option.misc.moreSeeds": "More Seeds",
+  "text.autoconfig.RaUt2.option.misc.angelBlock": "Angel Block",
+  "text.autoconfig.RaUt2.option.misc.boostBlock": "Boost Block",
+  "text.autoconfig.RaUt2.option.misc.chainPlate": "Chain Plate",
+  "text.autoconfig.RaUt2.option.misc.betterDiamondRecipe": "Better Diamond Recipe",
+  "text.autoconfig.RaUt2.option.misc.extraCreativeItems": "Extra Creative Items",
+  "text.autoconfig.RaUt2.category.Misc": "Misc",
+  "text.autoconfig.RaUt2.category.default": "Other"
 }

@@ -8,9 +8,9 @@ import net.fabricmc.loader.api.FabricLoader;
 
 @Config(name = "RaUt2")
 public class Cfg implements ConfigData {
-    @Comment(value = "Miscellaneous content. Includes a recipe for chainmail/horse armor using chain plates, grass dropping melon/pumpkin/beetroot seeds, an angel block and a block that shoots you across your world")
-    @ConfigEntry.Gui.CollapsibleObject
+    @Comment(value = "Miscellaneous content")
     @ConfigEntry.Category("Misc")
+    @ConfigEntry.Gui.TransitiveObject
     public MiscModule misc = new MiscModule();
 
     @Comment(value = "Adds paxels for vanilla resources. Disable if another mod does that already.")
@@ -34,21 +34,26 @@ public class Cfg implements ConfigData {
     @Comment(value = "Adds overpowered creative-only items. Only useful for debugging")
     public Boolean debug = false;
 
-    //@Comment(value = "Enables replacing and modifying vanilla content for a more homogenous experience. Might interfere with other mods")
-    //public Boolean replaceVanilla = true;
-
     @Comment(value = "Enables REI Compat. Only disable if it causes problems")
     public Boolean reiCompat = true;
 
     public static class MiscModule {
         public Boolean enabled = true;
+        @Comment("A recipe for chainmail armor")
         public Boolean chainmailRecipe = enabled;
+        @Comment("A recipe for horse armor")
         public Boolean horseArmorRecipe = enabled;
+        @Comment("Grass drops melon/pumpkin/beetroot seeds")
         public Boolean moreSeeds = enabled;
+        @Comment("An angel block (a block you can place in mid-air)")
         public Boolean angelBlock = enabled;
+        @Comment("A block that speeds you up drastically")
         public Boolean boostBlock = enabled;
+        @Comment("A crafting-item, used by other modules if available")
         public Boolean chainPlate = enabled;
+        @Comment("A recipe for diamond armor that uses chainmail as a base (like aquilorite)")
         public Boolean betterDiamondRecipe = enabled;
+        @Comment("Adds some items to the creative menus that are hidden by default (eg command blocks)")
         public Boolean extraCreativeItems = enabled;
     }
 }

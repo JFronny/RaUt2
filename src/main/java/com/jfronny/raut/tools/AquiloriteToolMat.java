@@ -17,7 +17,7 @@ public class AquiloriteToolMat implements ToolMaterial {
 
     @Override
     public float getAttackDamage() {
-        return 15;
+        return 10;
     }
 
     @Override

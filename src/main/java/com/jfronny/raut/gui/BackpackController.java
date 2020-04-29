@@ -7,6 +7,8 @@ import io.github.cottonmc.cotton.gui.CottonCraftingController;
 import io.github.cottonmc.cotton.gui.widget.WGridPanel;
 import io.github.cottonmc.cotton.gui.widget.WItemSlot;
 import io.github.cottonmc.cotton.gui.widget.WLabel;
+import io.github.cottonmc.cotton.gui.widget.WPlayerInvPanel;
+import net.minecraft.container.Slot;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
@@ -49,7 +51,9 @@ public class BackpackController extends CottonCraftingController {
         }
 
         rootPanel.add(new WLabel(new TranslatableText("container.inventory"), WLabel.DEFAULT_TEXT_COLOR), 0, rows+1);
-        rootPanel.add(this.createPlayerInventoryPanel(), 0, rows+2);
+        WPlayerInvPanel playerInv = this.createPlayerInventoryPanel();
+        //playerInv.
+        rootPanel.add(playerInv, 0, rows+2);
         rootPanel.validate(this);
     }
 
