@@ -14,10 +14,10 @@ public class VanillaPaxelsModule extends BaseModule {
 
     @Override
     public void Init() {
-        DepRegistry.registerItem("wooden_paxel", cfg.vanillaPaxels, WOODEN_PAXEL);
-        DepRegistry.registerItem("stone_paxel", cfg.vanillaPaxels, STONE_PAXEL);
-        DepRegistry.registerItem("iron_paxel", cfg.vanillaPaxels, IRON_PAXEL);
-        DepRegistry.registerItem("golden_paxel", cfg.vanillaPaxels, GOLDEN_PAXEL);
-        DepRegistry.registerItem("diamond_paxel", cfg.vanillaPaxels, DIAMOND_PAXEL);
+        DepRegistry.registerItem("wooden_paxel", cfg.vanillaPaxels.enabled && cfg.vanillaPaxels.wood, WOODEN_PAXEL);
+        DepRegistry.registerItem("stone_paxel", cfg.vanillaPaxels.enabled && cfg.vanillaPaxels.stone, STONE_PAXEL);
+        DepRegistry.registerItem("iron_paxel", cfg.vanillaPaxels.enabled && cfg.vanillaPaxels.iron, IRON_PAXEL);
+        DepRegistry.registerItem("golden_paxel", cfg.vanillaPaxels.enabled && cfg.vanillaPaxels.gold, GOLDEN_PAXEL);
+        DepRegistry.registerItem("diamond_paxel", cfg.vanillaPaxels.enabled && cfg.vanillaPaxels.diamond, DIAMOND_PAXEL);
     }
 }

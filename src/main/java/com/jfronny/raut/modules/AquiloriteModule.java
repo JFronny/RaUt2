@@ -30,19 +30,19 @@ public class AquiloriteModule extends BaseModule {
 
     @Override
     public void Init() {
-        DepRegistry.registerArmor("aquilorite", cfg.aquilorite, AQUILORITE_ARMOR);
-        DepRegistry.registerBlock("aquilorite_ore", cfg.aquilorite, AQUILORITE_ORE);
-        DepRegistry.registerBlock("aquilorite_block", cfg.aquilorite, AQUILORITE_BLOCK);
-        DepRegistry.registerBlock("aquilorite_block_hardened", cfg.aquilorite, AQUILORITE_BLOCK_2);
-        DepRegistry.registerItem("aquilorite_gem", cfg.aquilorite, AQUILORITE_GEM);
-        DepRegistry.registerItem("aquilorite_paxel", cfg.aquilorite, AQUILORITE_MULTITOOL);
+        DepRegistry.registerArmor("aquilorite", cfg.aquilorite.enabled && cfg.aquilorite.aquiloriteArmor, AQUILORITE_ARMOR);
+        DepRegistry.registerBlock("aquilorite_ore", cfg.aquilorite.enabled, AQUILORITE_ORE);
+        DepRegistry.registerBlock("aquilorite_block", cfg.aquilorite.enabled && cfg.aquilorite.aquiloriteBlock, AQUILORITE_BLOCK);
+        DepRegistry.registerBlock("aquilorite_block_hardened", cfg.aquilorite.enabled && cfg.aquilorite.aquiloriteBlockHardened, AQUILORITE_BLOCK_2);
+        DepRegistry.registerItem("aquilorite_gem", cfg.aquilorite.enabled, AQUILORITE_GEM);
+        DepRegistry.registerItem("aquilorite_paxel", cfg.aquilorite.enabled && cfg.aquilorite.aquiloritePaxel, AQUILORITE_MULTITOOL);
         RegistryEntryAddedCallback.event(Registry.BIOME).register((i, identifier, biome) -> handleBiome(biome));
     }
 
     @Override
     public void handleBiome(Biome biome) {
         if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND) {
-            if (cfg.aquilorite) {
+            if (cfg.aquilorite.enabled) {
                 biome.addFeature(
                         GenerationStep.Feature.UNDERGROUND_ORES,
                         Feature.ORE.configure(

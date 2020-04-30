@@ -14,31 +14,47 @@ public class Cfg implements ConfigData {
     public MiscModule misc = new MiscModule();
 
     @Comment(value = "Adds paxels for vanilla resources. Disable if another mod does that already.")
-    public Boolean vanillaPaxels = !FabricLoader.getInstance().isModLoaded("variablepaxels");
+    public VanillaPaxelsModule vanillaPaxels = new VanillaPaxelsModule();
 
     @Comment(value = "Adds steel as a resource in between iron and diamonds. Contains processing, ingots, nuggets, blocks, armor and tools")
-    public Boolean steel = true;
+    @ConfigEntry.Category("Steel")
+    @ConfigEntry.Gui.TransitiveObject
+    public SteelModule steel = new SteelModule();
 
     @Comment(value = "A new, powerful ore. Includes the ore, the aquilorite gem, two full blocks and armor")
-    public Boolean aquilorite = true;
+    @ConfigEntry.Category("Aquilorite")
+    @ConfigEntry.Gui.TransitiveObject
+    public AquiloriteModule aquilorite = new AquiloriteModule();
 
     @Comment(value = "Adds a new plant that can be used to farm string")
-    public Boolean cotton = !FabricLoader.getInstance().isModLoaded("flax");
+    @ConfigEntry.Category("Cotton")
+    @ConfigEntry.Gui.TransitiveObject
+    public CottonModule cotton = new CottonModule();
 
     @Comment(value = "Adds a new plant that can be used to get random potion effects")
-    public Boolean crystalPlant = true;
+    @ConfigEntry.Category("CrystalPlant")
+    @ConfigEntry.Gui.TransitiveObject
+    public CrystalPlantModule crystalPlant = new CrystalPlantModule();
 
     @Comment(value = "Adds some trinkets")
-    public Boolean trinkets = FabricLoader.getInstance().isModLoaded("trinkets");
+    @ConfigEntry.Category("Trinkets")
+    @ConfigEntry.Gui.TransitiveObject
+    public TrinketsModule trinkets = new TrinketsModule();
 
     @Comment(value = "Adds overpowered creative-only items. Only useful for debugging")
-    public Boolean debug = false;
+    @ConfigEntry.Category("Debug")
+    @ConfigEntry.Gui.TransitiveObject
+    public DebugModule debug = new DebugModule();
 
     @Comment(value = "Enables REI Compat. Only disable if it causes problems")
-    public Boolean reiCompat = true;
+    @ConfigEntry.Category("REICompat")
+    @ConfigEntry.Gui.TransitiveObject
+    public ReiCompatModule reiCompat = new ReiCompatModule();
 
     @Comment(value = "Ore processing")
-    public Boolean oreProcessing = true;
+    @ConfigEntry.Category("OreProcessing")
+    @ConfigEntry.Gui.TransitiveObject
+    public OreProcessingModule oreProcessing = new OreProcessingModule();
 
     public static class MiscModule {
         public Boolean enabled = true;
@@ -58,5 +74,87 @@ public class Cfg implements ConfigData {
         public Boolean betterDiamondRecipe = enabled;
         @Comment("Adds some items to the creative menus that are hidden by default (eg command blocks)")
         public Boolean extraCreativeItems = enabled;
+    }
+
+    public static class VanillaPaxelsModule {
+        public Boolean enabled = !FabricLoader.getInstance().isModLoaded("variablepaxels");
+        @Comment("Wooden paxel")
+        public Boolean wood = enabled;
+        @Comment("Stone paxel")
+        public Boolean stone = enabled;
+        @Comment("Iron paxel")
+        public Boolean iron = enabled;
+        @Comment("Golden paxel")
+        public Boolean gold = enabled;
+        @Comment("Diamond paxel")
+        public Boolean diamond = enabled;
+    }
+
+    public static class SteelModule {
+        public Boolean enabled = true;
+        @Comment("Steel nuggets")
+        public Boolean nugget = enabled;
+        @Comment("Steel blocks")
+        public Boolean block = enabled;
+        @Comment("Steel Tools. Between iron and diamond")
+        public Boolean tools = enabled;
+        @Comment("Steel Armor. Between iron and diamond")
+        public Boolean armor = enabled;
+    }
+
+    public static class AquiloriteModule {
+        public Boolean enabled = true;
+        @Comment("A walk-through block")
+        public Boolean aquiloriteBlock = enabled;
+        @Comment("Just another ore block")
+        public Boolean aquiloriteBlockHardened = enabled;
+        @Comment("Armor similarly powered to netherite")
+        public Boolean aquiloriteArmor = enabled;
+        @Comment("A powerful multitool")
+        public Boolean aquiloritePaxel = enabled;
+    }
+
+    public static class CottonModule {
+        public Boolean enabled = !FabricLoader.getInstance().isModLoaded("flax");
+    }
+
+    public static class CrystalPlantModule {
+        public Boolean enabled = true;
+        @Comment("Allows to craft Gold Apples using Crystal Plants")
+        public Boolean craftGApples = enabled;
+        @Comment("Allows to craft Notch Apples from Gold Apples using Crystal Plants")
+        public Boolean craftGApples2 = enabled;
+    }
+
+    public static class TrinketsModule {
+        public Boolean enabled = FabricLoader.getInstance().isModLoaded("trinkets");
+        @Comment("Ring that allows you to run faster/step higher")
+        public Boolean traveller_ring = enabled;
+        @Comment("Ring that allows you to reach further")
+        public Boolean angel_ring = enabled;
+        @Comment("Ring that allows you to reach further")
+        public Boolean builders_ring = enabled;
+        @Comment("Backpack to store items. Comes in three tiers")
+        public Boolean backpack = enabled;
+    }
+
+    public static class DebugModule {
+        public Boolean enabled = true;
+        @Comment("Item to easily clear large areas")
+        public Boolean debugClear = enabled;
+    }
+
+    public static class ReiCompatModule {
+        public Boolean enabled = true;
+    }
+
+    public static class OreProcessingModule {
+        public Boolean enabled = true;
+        @Comment("Enables processing for gold")
+        public Boolean gold = enabled;
+        @Comment("Enables processing for iron")
+        public Boolean iron = enabled;
+        @Comment("Enables processing for diamonds, emeralds and aquilorite (if enabled)")
+        public Boolean gems = enabled;
     }
 }

@@ -31,10 +31,12 @@ public class CrystalPlantModule extends BaseModule {
 
     @Override
     public void Init() {
-        DepRegistry.registerBlock("crystal_plant", cfg.crystalPlant, CRYSTAL_PLANT, CRYSTAL_PLANT_SEED);
-        DepRegistry.registerItem("crystal", cfg.crystalPlant, CRYSTAL);
-        if (!cfg.crystalPlant) {
+        DepRegistry.registerBlock("crystal_plant", cfg.crystalPlant.enabled, CRYSTAL_PLANT, CRYSTAL_PLANT_SEED);
+        DepRegistry.registerItem("crystal", cfg.crystalPlant.enabled, CRYSTAL);
+        if (!cfg.crystalPlant.enabled || !cfg.crystalPlant.craftGApples) {
             RecipeUtil.removeRecipe("raut:crystal_apple");
+        }
+        if (!cfg.crystalPlant.enabled || !cfg.crystalPlant.craftGApples2) {
             RecipeUtil.removeRecipe("raut:crystal_enchanted_apple");
         }
     }
@@ -42,7 +44,7 @@ public class CrystalPlantModule extends BaseModule {
     @Override
     public void onLootTableLoading(ResourceManager resourceManager, LootManager lootManager, Identifier id, FabricLootSupplierBuilder supplier, LootTableLoadingCallback.LootTableSetter setter) {
         if ((id.equals(new Identifier("chests/abandoned_mineshaft")) || id.equals(new Identifier("chests/desert_pyramid")) || id.equals(new Identifier("chests/jungle_temple")))) {
-            if (cfg.crystalPlant) {
+            if (cfg.crystalPlant.enabled) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder
                         .builder()
                         .withRolls(ConstantLootTableRange.create(1))

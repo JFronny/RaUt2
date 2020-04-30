@@ -29,8 +29,8 @@ public class CottonModule extends BaseModule {
 
     @Override
     public void Init() {
-        DepRegistry.registerBlock("cotton", cfg.cotton, COTTON_CROP, COTTON_SEED);
-        if (!cfg.cotton) {
+        DepRegistry.registerBlock("cotton", cfg.cotton.enabled, COTTON_CROP, COTTON_SEED);
+        if (!cfg.cotton.enabled) {
             RecipeUtil.removeRecipe("raut:cotton_string");
         }
     }
@@ -38,7 +38,7 @@ public class CottonModule extends BaseModule {
     @Override
     public void onLootTableLoading(ResourceManager resourceManager, LootManager lootManager, Identifier id, FabricLootSupplierBuilder supplier, LootTableLoadingCallback.LootTableSetter setter) {
         if ((id.equals(new Identifier("blocks/grass")) || id.equals(new Identifier("blocks/fern")) || id.equals(new Identifier("blocks/tall_grass")))) {
-            if (cfg.cotton) {
+            if (cfg.cotton.enabled) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder
                         .builder()
                         .withRolls(ConstantLootTableRange.create(1))

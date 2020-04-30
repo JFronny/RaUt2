@@ -46,11 +46,11 @@ public class TrinketsModule extends BaseModule {
     public void Init() {
         TrinketSlots.addSlot(SlotGroups.HAND, Slots.RING, new Identifier("trinkets", "textures/item/empty_trinket_slot_ring.png"));
         TrinketSlots.addSlot(SlotGroups.CHEST, Slots.BACKPACK, new Identifier("trinkets", "textures/item/empty_trinket_slot_backpack.png"));
-        DepRegistry.registerItem("traveller_ring", cfg.trinkets, new TravellersRing());
-        DepRegistry.registerItem("angel_ring", cfg.trinkets, new AngelRing());
-        DepRegistry.registerItem("builders_ring", cfg.trinkets, new BuilderRing());
-        DepRegistry.registerItem("backpack", cfg.trinkets, backpack);
-        if (cfg.trinkets) {
+        DepRegistry.registerItem("traveller_ring", cfg.trinkets.enabled && cfg.trinkets.traveller_ring, new TravellersRing());
+        DepRegistry.registerItem("angel_ring", cfg.trinkets.enabled && cfg.trinkets.angel_ring, new AngelRing());
+        DepRegistry.registerItem("builders_ring", cfg.trinkets.enabled && cfg.trinkets.builders_ring, new BuilderRing());
+        DepRegistry.registerItem("backpack", cfg.trinkets.enabled && cfg.trinkets.backpack, backpack);
+        if (cfg.trinkets.backpack) {
             ContainerProviderRegistry.INSTANCE.registerFactory(new Identifier(RaUt.MOD_ID, "backpack"), (syncId, id, player, buf) -> new BackpackController(syncId, player.inventory, buf.readItemStack(), buf.readInt(), buf.readInt()));
             ServerSidePacketRegistry.INSTANCE.register(OPEN_BACKPACK_PACKET_ID, (packetContext, attachedData) -> {
                 PlayerEntity player = packetContext.getPlayer();
@@ -74,8 +74,8 @@ public class TrinketsModule extends BaseModule {
 
     @Override
     public void InitClient() {
-        ScreenProviderRegistry.INSTANCE.registerFactory(new Identifier(RaUt.MOD_ID, "backpack"), (syncId, identifier, player, buf) -> new BackpackScreen(new BackpackController(syncId, player.inventory, buf.readItemStack(), buf.readInt(), buf.readInt()), player));
-        if (cfg.trinkets) {
+        if (cfg.trinkets.backpack) {
+            ScreenProviderRegistry.INSTANCE.registerFactory(new Identifier(RaUt.MOD_ID, "backpack"), (syncId, identifier, player, buf) -> new BackpackScreen(new BackpackController(syncId, player.inventory, buf.readItemStack(), buf.readInt(), buf.readInt()), player));
             FabricKeyBinding backpackKeyBinding = FabricKeyBinding.Builder.create(
                     new Identifier(RaUt.MOD_ID, "open_backpack"),
                     InputUtil.Type.KEYSYM,

@@ -12,6 +12,6 @@ public class DebugModule extends BaseModule {
 
     @Override
     public void Init() {
-        DepRegistry.registerItem("debug_clear", cfg.debug, DEBUG_CLEAR);
+        DepRegistry.registerItem("debug_clear", cfg.debug.enabled && cfg.debug.debugClear, DEBUG_CLEAR);
     }
 }

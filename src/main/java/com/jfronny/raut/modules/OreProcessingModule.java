@@ -18,28 +18,45 @@ public class OreProcessingModule extends BaseModule {
 
     @Override
     public void Init() {
-        DepRegistry.registerItem("iron_shard", cfg.oreProcessing, IRON_SHARD);
-        DepRegistry.registerItem("iron_dust", cfg.oreProcessing, IRON_DUST);
-        DepRegistry.registerItem("gold_shard", cfg.oreProcessing, GOLD_SHARD);
-        DepRegistry.registerItem("gold_dust", cfg.oreProcessing, GOLD_DUST);
-        if (cfg.oreProcessing) {
+        DepRegistry.registerItem("iron_shard", cfg.oreProcessing.enabled && cfg.oreProcessing.iron, IRON_SHARD);
+        DepRegistry.registerItem("iron_dust", cfg.oreProcessing.enabled && cfg.oreProcessing.iron, IRON_DUST);
+        DepRegistry.registerItem("gold_shard", cfg.oreProcessing.enabled && cfg.oreProcessing.gold, GOLD_SHARD);
+        DepRegistry.registerItem("gold_dust", cfg.oreProcessing.enabled && cfg.oreProcessing.gold, GOLD_DUST);
+        if (cfg.oreProcessing.enabled) {
             ((ItemExtension) Items.ANVIL).SetCount(1);
+            if (!cfg.oreProcessing.iron) {
+                RecipeUtil.removeRecipe("raut:iron_dust");
+                RecipeUtil.removeRecipe("raut:iron_shard");
+                RecipeUtil.removeRecipe("raut:iron_ingot");
+                RecipeUtil.removeRecipe("raut:iron_ingot2");
+            }
+            if (!cfg.oreProcessing.gold) {
+                RecipeUtil.removeRecipe("raut:gold_dust");
+                RecipeUtil.removeRecipe("raut:gold_shard");
+                RecipeUtil.removeRecipe("raut:gold_ingot");
+                RecipeUtil.removeRecipe("raut:gold_ingot2");
+            }
+            if (!cfg.oreProcessing.gems) {
+                RecipeUtil.removeRecipe("raut:aquilorite_proc");
+                RecipeUtil.removeRecipe("raut:diamond_proc");
+                RecipeUtil.removeRecipe("raut:emerald_proc");
+            }
         } else {
+            RecipeUtil.removeRecipe("raut:iron_dust");
+            RecipeUtil.removeRecipe("raut:iron_shard");
+            RecipeUtil.removeRecipe("raut:iron_ingot");
+            RecipeUtil.removeRecipe("raut:iron_ingot2");
+            RecipeUtil.removeRecipe("raut:gold_dust");
+            RecipeUtil.removeRecipe("raut:gold_shard");
+            RecipeUtil.removeRecipe("raut:gold_ingot");
+            RecipeUtil.removeRecipe("raut:gold_ingot2");
             RecipeUtil.removeRecipe("raut:aquilorite_proc");
             RecipeUtil.removeRecipe("raut:coal_proc");
             RecipeUtil.removeRecipe("raut:diamond_proc");
             RecipeUtil.removeRecipe("raut:emerald_proc");
-            RecipeUtil.removeRecipe("raut:gold_ingot");
-            RecipeUtil.removeRecipe("raut:gold_ingot2");
-            RecipeUtil.removeRecipe("raut:iron_ingot");
-            RecipeUtil.removeRecipe("raut:iron_ingot2");
             RecipeUtil.removeRecipe("raut:lapis_proc");
             RecipeUtil.removeRecipe("raut:nether_quartz_proc");
             //NBT-Crafting doesn't seem to like my DepRegistry recipe removal
-            RecipeUtil.removeRecipe("raut:gold_dust");
-            RecipeUtil.removeRecipe("raut:gold_shard");
-            RecipeUtil.removeRecipe("raut:iron_dust");
-            RecipeUtil.removeRecipe("raut:iron_shard");
         }
     }
 }

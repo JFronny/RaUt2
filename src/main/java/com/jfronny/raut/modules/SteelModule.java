@@ -25,12 +25,12 @@ public class SteelModule extends BaseModule {
 
     @Override
     public void Init() {
-        DepRegistry.registerTools("steel", cfg.steel, new SteelToolMat());
+        DepRegistry.registerTools("steel", cfg.steel.tools, new SteelToolMat());
         boolean cottonRes = FabricLoader.getInstance().isModLoaded("cotton-resources");
-        DepRegistry.registerItem("raw_steel", cfg.steel || (cfg.aquilorite && !cottonRes), RAW_STEEL);
-        DepRegistry.registerItem("steel_ingot", cfg.steel || (cfg.aquilorite && !cottonRes), STEEL_INGOT);
-        DepRegistry.registerItem("steel_nugget", cfg.steel, STEEL_NUGGET);
-        DepRegistry.registerBlock("steel_block", cfg.steel, STEEL_BLOCK);
-        DepRegistry.registerArmor("steel", cfg.steel, STEEL_ARMOR);
+        DepRegistry.registerItem("raw_steel", cfg.steel.enabled || ((cfg.aquilorite.enabled && cfg.aquilorite.aquiloriteBlockHardened) && !cottonRes), RAW_STEEL);
+        DepRegistry.registerItem("steel_ingot", cfg.steel.enabled || ((cfg.aquilorite.enabled && cfg.aquilorite.aquiloriteBlockHardened) && !cottonRes), STEEL_INGOT);
+        DepRegistry.registerItem("steel_nugget", cfg.steel.nugget, STEEL_NUGGET);
+        DepRegistry.registerBlock("steel_block", cfg.steel.block, STEEL_BLOCK);
+        DepRegistry.registerArmor("steel", cfg.steel.armor, STEEL_ARMOR);
     }
 }
