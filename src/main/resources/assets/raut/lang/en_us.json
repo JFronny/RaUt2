@@ -32,19 +32,18 @@
   "item.raut.builders_ring": "Builders Ring",
   "item.raut.steel_paxel": "Steel Paxel",
   "item.raut.backpack": "Backpack",
+  "item.raut.iron_shard": "Iron Shard",
+  "item.raut.gold_shard": "Gold Shard",
+  "item.raut.iron_dust": "Iron Dust",
+  "item.raut.gold_dust": "Gold Dust",
   "item.raut.backpack.tooltip.small": "Size: §7Small§r",
   "item.raut.backpack.tooltip.medium": "Size: §5Medium§r",
   "item.raut.backpack.tooltip.large": "Size: §6Large§r",
-
   "key.raut.open_backpack": "Open Backpack",
-
   "attribute.name.generic.flyingSpeed": "Flying speed",
   "attribute.name.generic.step-height-entity-attributes.step-height": "Step Height",
-
   "status.raut.disabled": "Disabled Item",
-
   "gui.raut.backpack": "Backpack",
-
   "block.raut.angelblock": "Angel Block",
   "block.raut.cotton": "Cotton",
   "block.raut.crystal_plant": "Crystal Plant",
@@ -53,7 +52,6 @@
   "block.raut.aquilorite_block": "Aquilorite Block",
   "block.raut.aquilorite_block_hardened": "Aquilorite Block (hardened)",
   "block.raut.boost": "Boost",
-
   "text.autoconfig.RaUt2.option.vanillaPaxels": "Vanilla Paxels",
   "text.autoconfig.RaUt2.option.steel": "Steel",
   "text.autoconfig.RaUt2.option.aquilorite": "Aquilorite",

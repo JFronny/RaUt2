@@ -1,5 +1,6 @@
 package com.jfronny.raut.api;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
@@ -10,7 +11,8 @@ public class ToolMatBuilder implements ToolMaterial {
     int miningLevel;
     int enchantability;
     Ingredient repairIngredient;
-    public ToolMatBuilder(ToolMaterial base){
+
+    public ToolMatBuilder(ToolMaterial base) {
         durability = base.getDurability();
         miningSpeed = base.getMiningSpeed();
         attackDamage = base.getAttackDamage();
@@ -29,34 +31,14 @@ public class ToolMatBuilder implements ToolMaterial {
         return miningSpeed;
     }
 
-    @Override
-    public float getAttackDamage() {
-        return attackDamage;
-    }
-
-    @Override
-    public int getMiningLevel() {
-        return miningLevel;
-    }
-
-    @Override
-    public int getEnchantability() {
-        return enchantability;
-    }
-
-    @Override
-    public Ingredient getRepairIngredient() {
-        return repairIngredient;
-    }
-
-    public ToolMatBuilder setDurability(int durability) {
-        this.durability = durability;
-        return this;
-    }
-
     public ToolMatBuilder setMiningSpeed(float miningSpeed) {
         this.miningSpeed = miningSpeed;
         return this;
+    }
+
+    @Override
+    public float getAttackDamage() {
+        return attackDamage;
     }
 
     public ToolMatBuilder setAttackDamage(float attackDamage) {
@@ -64,9 +46,19 @@ public class ToolMatBuilder implements ToolMaterial {
         return this;
     }
 
+    @Override
+    public int getMiningLevel() {
+        return miningLevel;
+    }
+
     public ToolMatBuilder setMiningLevel(int miningLevel) {
         this.miningLevel = miningLevel;
         return this;
+    }
+
+    @Override
+    public int getEnchantability() {
+        return enchantability;
     }
 
     public ToolMatBuilder setEnchantability(int enchantability) {
@@ -74,8 +66,18 @@ public class ToolMatBuilder implements ToolMaterial {
         return this;
     }
 
+    @Override
+    public Ingredient getRepairIngredient() {
+        return repairIngredient;
+    }
+
     public ToolMatBuilder setRepairIngredient(Ingredient repairIngredient) {
         this.repairIngredient = repairIngredient;
+        return this;
+    }
+
+    public ToolMatBuilder setDurability(int durability, Block.Settings set) {
+        this.durability = durability;
         return this;
     }
 }

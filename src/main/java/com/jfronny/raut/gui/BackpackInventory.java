@@ -1,13 +1,9 @@
 package com.jfronny.raut.gui;
 
-import com.jfronny.raut.RaUt;
 import com.jfronny.raut.mixin.interfacing.ShulkerIllegalChecker;
-import com.jfronny.raut.modules.TrinketsModule;
-import com.jfronny.raut.trinket.BackpackTrinket;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.DefaultedList;
@@ -61,8 +57,8 @@ public class BackpackInventory implements ImplementedInventory {
             invTag = Inventories.toTag(invTag, theList);
         }
         theStack.getTag().put("Inventory", invTag);
-            theInventory.setInvStack(theSlot, theStack);
-            theInventory.markDirty();
+        theInventory.setInvStack(theSlot, theStack);
+        theInventory.markDirty();
     }
 
     @Override
@@ -70,12 +66,12 @@ public class BackpackInventory implements ImplementedInventory {
         markDirty();
     }
 
-    public enum Size {
-        SMALL, MEDIUM, LARGE
-    }
-
     @Override
     public boolean isValidInvStack(int slot, ItemStack stack) {
         return canInsertInvStack(slot, stack, Direction.DOWN);
+    }
+
+    public enum Size {
+        SMALL, MEDIUM, LARGE
     }
 }

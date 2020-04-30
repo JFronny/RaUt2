@@ -18,8 +18,9 @@ import java.util.List;
  * <h2>Reading and writing to tags</h2>
  * Use {@link Inventories#fromTag(CompoundTag, DefaultedList)} and {@link Inventories#toTag(CompoundTag, DefaultedList)}
  * on {@linkplain #getItems() the item list}.
- *
+ * <p>
  * License: <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>
+ *
  * @author Juuz
  */
 @FunctionalInterface
@@ -59,9 +60,9 @@ public interface ImplementedInventory extends SidedInventory {
      *
      * <p>The default implementation returns true.
      *
-     * @param slot the slot
+     * @param slot  the slot
      * @param stack the stack
-     * @param side the side
+     * @param side  the side
      * @return true if the stack can be inserted
      */
     @Override
@@ -74,9 +75,9 @@ public interface ImplementedInventory extends SidedInventory {
      *
      * <p>The default implementation returns true.
      *
-     * @param slot the slot
+     * @param slot  the slot
      * @param stack the stack
-     * @param side the side
+     * @param side  the side
      * @return true if the stack can be extracted
      */
     @Override
@@ -130,7 +131,7 @@ public interface ImplementedInventory extends SidedInventory {
      * <p>(default implementation) If there are less items in the slot than what are requested,
      * takes all items in that slot.
      *
-     * @param slot the slot
+     * @param slot  the slot
      * @param count the item count
      * @return a stack
      */
@@ -163,7 +164,7 @@ public interface ImplementedInventory extends SidedInventory {
      * <p>If the stack is too big for this inventory ({@link Inventory#getInvMaxStackAmount()}),
      * it gets resized to this inventory's maximum amount.
      *
-     * @param slot the slot
+     * @param slot  the slot
      * @param stack the stack
      */
     @Override

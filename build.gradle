@@ -67,7 +67,7 @@ dependencies {
     include "com.github.emilyploszaj:step-height-entity-attribute:v1.0.0"
 
     //Nbt Crafting
-    modImplementation ("com.github.siphalor:nbt-crafting:1.15-2.0-SNAPSHOT") {
+    modImplementation("com.github.siphalor:nbt-crafting:1.15-2.0-SNAPSHOT") {
         transitive = false;
     }
 }

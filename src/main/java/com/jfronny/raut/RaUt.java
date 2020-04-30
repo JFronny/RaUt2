@@ -26,18 +26,18 @@ public class RaUt implements ModInitializer {
     @Override
     public void onInitialize() {
         logger.info("Initializing");
-        //cfg = ConfigManager.loadConfig(Cfg.class);
         AutoConfig.register(Cfg.class, JanksonConfigSerializer::new);
         cfg = AutoConfig.getConfigHolder(Cfg.class).getConfig();
         modules.add(new AquiloriteModule());
         modules.add(new CottonModule());
         modules.add(new CrystalPlantModule());
-        modules.add(new DataFixerModule());
         modules.add(new DebugModule());
         modules.add(new MiscModule());
+        modules.add(new OreProcessingModule());
         modules.add(new SteelModule());
         modules.add(new TrinketsModule());
         modules.add(new VanillaPaxelsModule());
+        modules.add(new DataFixerModule());
 
         for (BaseModule module : modules) {
             module.Init();

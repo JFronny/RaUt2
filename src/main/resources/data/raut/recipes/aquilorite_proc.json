@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "A"
+  ],
+  "key": {
+    "#": {
+      "item": "raut:aquilorite_ore"
+    },
+    "A": {
+      "item": "minecraft:anvil",
+      "remainder": {
+        "item": "minecraft:anvil"
+      }
+    }
+  },
+  "result": {
+    "item": "raut:aquilorite_gem",
+    "count": 3
+  }
+}

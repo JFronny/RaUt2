@@ -10,7 +10,10 @@ import com.jfronny.raut.trinket.AngelRing;
 import com.jfronny.raut.trinket.BackpackTrinket;
 import com.jfronny.raut.trinket.BuilderRing;
 import com.jfronny.raut.trinket.TravellersRing;
-import dev.emi.trinkets.api.*;
+import dev.emi.trinkets.api.SlotGroups;
+import dev.emi.trinkets.api.Slots;
+import dev.emi.trinkets.api.TrinketSlots;
+import dev.emi.trinkets.api.TrinketsApi;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.client.keybinding.FabricKeyBinding;
 import net.fabricmc.fabric.api.client.keybinding.KeyBindingRegistry;
@@ -19,35 +22,26 @@ import net.fabricmc.fabric.api.container.ContainerProviderRegistry;
 import net.fabricmc.fabric.api.event.client.ClientTickCallback;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
-import net.minecraft.block.Blocks;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.SpecialCraftingRecipe;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.PacketByteBuf;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.World;
 import org.lwjgl.glfw.GLFW;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 import static com.jfronny.raut.RaUt.cfg;
 
 public class TrinketsModule extends BaseModule {
-    public static BackpackTrinket backpack = new BackpackTrinket();
     public static final Identifier OPEN_BACKPACK_PACKET_ID = new Identifier(RaUt.MOD_ID, "open_backpack");
+    public static BackpackTrinket backpack = new BackpackTrinket();
+
     @Override
     public void Init() {
         TrinketSlots.addSlot(SlotGroups.HAND, Slots.RING, new Identifier("trinkets", "textures/item/empty_trinket_slot_ring.png"));
@@ -64,7 +58,7 @@ public class TrinketsModule extends BaseModule {
                     Inventory component = TrinketsApi.getTrinketsInventory(player);
                     Set<Item> backpackSet = new HashSet<>();
                     backpackSet.add(backpack);
-                    if (component.containsAnyInInv(backpackSet)){
+                    if (component.containsAnyInInv(backpackSet)) {
                         int size = component.getInvSize();
                         for (int i = 0; i < size; i++) {
                             if (component.getInvStack(i).getItem() == backpack) {
@@ -90,11 +84,11 @@ public class TrinketsModule extends BaseModule {
             ).build();
             ClientTickCallback.EVENT.register(e ->
             {
-                if(backpackKeyBinding.isPressed()){
+                if (backpackKeyBinding.isPressed()) {
                     Inventory component = TrinketsApi.getTrinketsInventory(e.player);
                     Set<Item> backpackSet = new HashSet<>();
                     backpackSet.add(backpack);
-                    if (component.containsAnyInInv(backpackSet)){
+                    if (component.containsAnyInInv(backpackSet)) {
                         int size = component.getInvSize();
                         for (int i = 0; i < size; i++) {
                             if (component.getInvStack(i).getItem() == backpack) {

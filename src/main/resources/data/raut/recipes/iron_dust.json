@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "A"
+  ],
+  "key": {
+    "#": {
+      "item": "raut:iron_shard"
+    },
+    "A": {
+      "item": "minecraft:anvil",
+      "remainder": {
+        "item": "minecraft:anvil"
+      }
+    }
+  },
+  "result": {
+    "item": "raut:iron_dust",
+    "count": 2
+  }
+}

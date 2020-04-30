@@ -1,8 +1,6 @@
 package com.jfronny.raut.modules;
 
 import com.jfronny.raut.api.*;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ToolMaterials;
 
 import static com.jfronny.raut.RaUt.cfg;

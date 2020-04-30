@@ -1,7 +1,6 @@
 package com.jfronny.raut.trinket;
 
 import com.jfronny.raut.RaUt;
-import com.jfronny.raut.api.RingRenderer;
 import com.jfronny.raut.gui.BackpackInventory;
 import dev.emi.trinkets.api.ITrinket;
 import dev.emi.trinkets.api.SlotGroups;
@@ -38,6 +37,40 @@ import java.util.List;
 public class BackpackTrinket extends Item implements ITrinket {
     public BackpackTrinket() {
         super(new Item.Settings().group(ItemGroup.MISC).maxCount(1));
+    }
+
+    public static void openGUI(ItemStack stack, PlayerEntity playerEntity) {
+        if (!stack.isEmpty() && stack.getItem() instanceof BackpackTrinket) {
+            BackpackInventory.Size size = null;
+            if (!stack.hasTag()) {
+                stack.setTag(new CompoundTag());
+            }
+            if (!stack.getTag().contains("Size")) {
+                stack.getTag().putInt("Size", 0);
+            } else {
+                switch (stack.getTag().getInt("Size")) {
+                    case 0:
+                        size = BackpackInventory.Size.SMALL;
+                        break;
+                    case 1:
+                        size = BackpackInventory.Size.MEDIUM;
+                        break;
+                    case 2:
+                        size = BackpackInventory.Size.LARGE;
+                        break;
+                    default:
+                        size = BackpackInventory.Size.SMALL;
+                        break;
+                }
+                stack.getTag().putInt("Size", size.ordinal());
+            }
+            final int sizeInt = size != null ? size.ordinal() : 0;
+            ContainerProviderRegistry.INSTANCE.openContainer(new Identifier(RaUt.MOD_ID, "backpack"), playerEntity, (buf) -> {
+                buf.writeItemStack(stack);
+                buf.writeInt(sizeInt);
+                buf.writeInt(playerEntity.inventory.getSlotWithStack(stack));
+            });
+        }
     }
 
     @Override
@@ -110,40 +143,6 @@ public class BackpackTrinket extends Item implements ITrinket {
         if (player.isInSneakingPose() && !model.riding && !player.isSwimming()) {
             matrixStack.multiply(Vector3f.NEGATIVE_X.getDegreesQuaternion(model.torso.pitch * 57.5F));
             matrixStack.translate(0.0F, -0.2F, 0.0F);
-        }
-    }
-
-    public static void openGUI(ItemStack stack, PlayerEntity playerEntity){
-        if (!stack.isEmpty() && stack.getItem() instanceof BackpackTrinket) {
-            BackpackInventory.Size size = null;
-            if (!stack.hasTag()) {
-                stack.setTag(new CompoundTag());
-            }
-            if (!stack.getTag().contains("Size")) {
-                stack.getTag().putInt("Size", 0);
-            } else {
-                switch(stack.getTag().getInt("Size")) {
-                    case 0:
-                        size = BackpackInventory.Size.SMALL;
-                        break;
-                    case 1:
-                        size = BackpackInventory.Size.MEDIUM;
-                        break;
-                    case 2:
-                        size = BackpackInventory.Size.LARGE;
-                        break;
-                    default:
-                        size = BackpackInventory.Size.SMALL;
-                        break;
-                }
-                stack.getTag().putInt("Size", size.ordinal());
-            }
-            final int sizeInt = size != null ? size.ordinal() : 0;
-            ContainerProviderRegistry.INSTANCE.openContainer(new Identifier(RaUt.MOD_ID, "backpack"), playerEntity, (buf) -> {
-                buf.writeItemStack(stack);
-                buf.writeInt(sizeInt);
-                buf.writeInt(playerEntity.inventory.getSlotWithStack(stack));
-            });
         }
     }
 }

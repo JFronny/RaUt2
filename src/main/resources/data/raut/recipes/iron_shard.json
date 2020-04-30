@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "A"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_ore"
+    },
+    "A": {
+      "item": "minecraft:anvil",
+      "remainder": {
+        "item": "minecraft:anvil"
+      }
+    }
+  },
+  "result": {
+    "item": "raut:iron_shard",
+    "count": 2
+  }
+}

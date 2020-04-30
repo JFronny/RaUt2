@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "A"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:coal_ore"
+    },
+    "A": {
+      "item": "minecraft:anvil",
+      "remainder": {
+        "item": "minecraft:anvil"
+      }
+    }
+  },
+  "result": {
+    "item": "minecraft:coal",
+    "count": 3
+  }
+}

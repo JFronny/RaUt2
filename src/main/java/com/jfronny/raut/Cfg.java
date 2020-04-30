@@ -37,6 +37,9 @@ public class Cfg implements ConfigData {
     @Comment(value = "Enables REI Compat. Only disable if it causes problems")
     public Boolean reiCompat = true;
 
+    @Comment(value = "Ore processing")
+    public Boolean oreProcessing = true;
+
     public static class MiscModule {
         public Boolean enabled = true;
         @Comment("A recipe for chainmail armor")

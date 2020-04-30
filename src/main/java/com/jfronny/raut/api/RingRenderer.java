@@ -1,6 +1,5 @@
 package com.jfronny.raut.api;
 
-import dev.emi.trinkets.api.ITrinket;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.VertexConsumerProvider;

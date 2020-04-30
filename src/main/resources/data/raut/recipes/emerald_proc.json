@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "A"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:emerald_ore"
+    },
+    "A": {
+      "item": "minecraft:anvil",
+      "remainder": {
+        "item": "minecraft:anvil"
+      }
+    }
+  },
+  "result": {
+    "item": "minecraft:emerald",
+    "count": 3
+  }
+}

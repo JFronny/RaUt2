@@ -1,6 +1,5 @@
 package com.jfronny.raut.modules;
 
-import com.jfronny.raut.RaUt;
 import com.jfronny.raut.api.BaseModule;
 import com.jfronny.raut.api.DepRegistry;
 import com.jfronny.raut.crops.CrystalPlant;
@@ -34,7 +33,7 @@ public class CrystalPlantModule extends BaseModule {
     public void Init() {
         DepRegistry.registerBlock("crystal_plant", cfg.crystalPlant, CRYSTAL_PLANT, CRYSTAL_PLANT_SEED);
         DepRegistry.registerItem("crystal", cfg.crystalPlant, CRYSTAL);
-        if (!cfg.crystalPlant){
+        if (!cfg.crystalPlant) {
             RecipeUtil.removeRecipe("raut:crystal_apple");
             RecipeUtil.removeRecipe("raut:crystal_enchanted_apple");
         }

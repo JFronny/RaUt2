@@ -50,13 +50,13 @@ public class MiscModule extends BaseModule {
                 RecipeUtil.removeRecipe("raut:diamond_helmet");
                 RecipeUtil.removeRecipe("raut:diamond_leggings");
             }
-            if (!cfg.misc.chainmailRecipe){
+            if (!cfg.misc.chainmailRecipe) {
                 RecipeUtil.removeRecipe("raut:chainmail_boots");
                 RecipeUtil.removeRecipe("raut:chainmail_chestplate");
                 RecipeUtil.removeRecipe("raut:chainmail_helmet");
                 RecipeUtil.removeRecipe("raut:chainmail_leggings");
             }
-            if (!cfg.misc.horseArmorRecipe){
+            if (!cfg.misc.horseArmorRecipe) {
                 RecipeUtil.removeRecipe("raut:leather_horse_armor");
                 RecipeUtil.removeRecipe("raut:diamond_horse_armor");
                 RecipeUtil.removeRecipe("raut:golden_horse_armor");
