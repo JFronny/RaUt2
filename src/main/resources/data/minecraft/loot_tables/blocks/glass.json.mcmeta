@@ -1,0 +1,7 @@
+{
+  "when": [
+    {
+      "raut:config": "misc.glassShards"
+    }
+  ]
+}

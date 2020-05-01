@@ -7,6 +7,8 @@ import io.github.cottonmc.libcd.api.condition.ConditionManager;
 import io.github.cottonmc.libcd.api.tweaker.TweakerManager;
 import net.minecraft.util.Identifier;
 
+import static com.jfronny.raut.RaUt.cfg;
+
 public class LibCD implements LibCDInitializer {
     @Override
     public void initTweakers(TweakerManager tweakerManager) {
@@ -22,87 +24,89 @@ public class LibCD implements LibCDInitializer {
             switch ((String) s) {
                 case "misc":
                 case "misc.enabled":
-                    return RaUt.cfg.misc.enabled;
+                    return cfg.misc.enabled;
                 case "misc.chainPlate":
-                    return RaUt.cfg.misc.enabled && RaUt.cfg.misc.chainPlate;
+                    return cfg.misc.enabled && cfg.misc.chainPlate;
                 case "misc.horseArmorRecipe":
-                    return RaUt.cfg.misc.enabled && RaUt.cfg.misc.horseArmorRecipe;
+                    return cfg.misc.enabled && cfg.misc.horseArmorRecipe;
                 case "misc.chainmailRecipe":
-                    return RaUt.cfg.misc.enabled && RaUt.cfg.misc.chainmailRecipe;
+                    return cfg.misc.enabled && cfg.misc.chainmailRecipe;
                 case "misc.betterDiamondRecipe":
-                    return RaUt.cfg.misc.enabled && RaUt.cfg.misc.betterDiamondRecipe;
+                    return cfg.misc.enabled && cfg.misc.betterDiamondRecipe;
                 case "misc.extraCreativeItems":
-                    return RaUt.cfg.misc.enabled && RaUt.cfg.misc.extraCreativeItems;
+                    return cfg.misc.enabled && cfg.misc.extraCreativeItems;
                 case "misc.moreSeeds":
-                    return RaUt.cfg.misc.enabled && RaUt.cfg.misc.moreSeeds;
+                    return cfg.misc.enabled && cfg.misc.moreSeeds;
                 case "misc.angelBlock":
-                    return RaUt.cfg.misc.enabled && RaUt.cfg.misc.angelBlock;
+                    return cfg.misc.enabled && cfg.misc.angelBlock;
                 case "misc.boostBlock":
-                    return RaUt.cfg.misc.enabled && RaUt.cfg.misc.boostBlock;
+                    return cfg.misc.enabled && cfg.misc.boostBlock;
+                case "misc.glassShards":
+                    return cfg.misc.enabled && cfg.misc.glassShards;
                 case "vanillaPaxels":
                 case "vanillaPaxels.enabled":
-                    return RaUt.cfg.vanillaPaxels.enabled;
+                    return cfg.vanillaPaxels.enabled;
                 case "vanillaPaxels.wood":
-                    return RaUt.cfg.vanillaPaxels.wood;
+                    return cfg.vanillaPaxels.enabled && cfg.vanillaPaxels.wood;
                 case "vanillaPaxels.stone":
-                    return RaUt.cfg.vanillaPaxels.stone;
+                    return cfg.vanillaPaxels.enabled && cfg.vanillaPaxels.stone;
                 case "vanillaPaxels.iron":
-                    return RaUt.cfg.vanillaPaxels.iron;
+                    return cfg.vanillaPaxels.enabled && cfg.vanillaPaxels.iron;
                 case "vanillaPaxels.gold":
-                    return RaUt.cfg.vanillaPaxels.gold;
+                    return cfg.vanillaPaxels.enabled && cfg.vanillaPaxels.gold;
                 case "vanillaPaxels.diamond":
-                    return RaUt.cfg.vanillaPaxels.diamond;
+                    return cfg.vanillaPaxels.enabled && cfg.vanillaPaxels.diamond;
                 case "steel":
                 case "steel.enabled;":
-                    return RaUt.cfg.steel.enabled;
+                    return cfg.steel.enabled;
                 case "steel.nugget":
-                    return RaUt.cfg.steel.nugget;
+                    return cfg.steel.enabled && cfg.steel.nugget;
                 case "steel.block":
-                    return RaUt.cfg.steel.block;
+                    return cfg.steel.enabled && cfg.steel.block;
                 case "steel.tools":
-                    return RaUt.cfg.steel.tools;
+                    return cfg.steel.enabled && cfg.steel.tools;
                 case "steel.armor":
-                    return RaUt.cfg.steel.armor;
+                    return cfg.steel.enabled && cfg.steel.armor;
                 case "aquilorite":
                 case "aquilorite.enabled":
-                    return RaUt.cfg.aquilorite.enabled;
+                    return cfg.aquilorite.enabled;
                 case "aquilorite.aquiloriteBlock":
-                    return RaUt.cfg.aquilorite.aquiloriteBlock;
+                    return cfg.aquilorite.enabled && cfg.aquilorite.aquiloriteBlock;
                 case "aquilorite.aquiloriteBlockHardened":
-                    return RaUt.cfg.aquilorite.aquiloriteBlockHardened;
+                    return cfg.aquilorite.enabled && cfg.aquilorite.aquiloriteBlockHardened;
                 case "aquilorite.aquiloriteArmor":
-                    return RaUt.cfg.aquilorite.aquiloriteArmor;
+                    return cfg.aquilorite.enabled && cfg.aquilorite.aquiloriteArmor;
                 case "aquilorite.aquiloritePaxel":
-                    return RaUt.cfg.aquilorite.aquiloritePaxel;
+                    return cfg.aquilorite.enabled && cfg.aquilorite.aquiloritePaxel;
                 case "cotton":
                 case "cotton.enabled":
-                    return RaUt.cfg.cotton.enabled;
+                    return cfg.cotton.enabled;
                 case "crystalPlant":
                 case "crystalPlant.enabled":
-                    return RaUt.cfg.crystalPlant.enabled;
+                    return cfg.crystalPlant.enabled;
                 case "crystalPlant.craftGApples":
-                    return RaUt.cfg.crystalPlant.craftGApples;
+                    return cfg.crystalPlant.enabled && cfg.crystalPlant.craftGApples;
                 case "crystalPlant.craftGApples2":
-                    return RaUt.cfg.crystalPlant.craftGApples2;
+                    return cfg.crystalPlant.enabled && cfg.crystalPlant.craftGApples2;
                 case "trinkets":
                 case "trinkets.enabled":
-                    return RaUt.cfg.trinkets.enabled;
+                    return cfg.trinkets.enabled;
                 case "trinkets.traveller_ring":
-                    return RaUt.cfg.trinkets.traveller_ring;
+                    return cfg.trinkets.enabled && cfg.trinkets.traveller_ring;
                 case "trinkets.angel_ring":
-                    return RaUt.cfg.trinkets.angel_ring;
+                    return cfg.trinkets.enabled && cfg.trinkets.angel_ring;
                 case "trinkets.builders_ring":
-                    return RaUt.cfg.trinkets.builders_ring;
+                    return cfg.trinkets.enabled && cfg.trinkets.builders_ring;
                 case "trinkets.backpack":
-                    return RaUt.cfg.trinkets.backpack;
+                    return cfg.trinkets.enabled && cfg.trinkets.backpack;
                 case "debug":
                 case "debug.enabled":
-                    return RaUt.cfg.debug.enabled;
+                    return cfg.debug.enabled;
                 case "debug.debugClear":
-                    return RaUt.cfg.debug.debugClear;
+                    return cfg.debug.enabled && cfg.debug.debugClear;
                 case "reiCompat":
                 case "reiCompat.enabled":
-                    return RaUt.cfg.reiCompat.enabled;
+                    return cfg.reiCompat.enabled;
                 default:
                     throw new CDSyntaxError("Expected config entry");
             }

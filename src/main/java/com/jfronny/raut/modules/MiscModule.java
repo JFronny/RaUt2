@@ -2,22 +2,22 @@ package com.jfronny.raut.modules;
 
 import com.jfronny.raut.api.BaseModule;
 import com.jfronny.raut.api.DepRegistry;
+import com.jfronny.raut.api.GenericPlant;
 import com.jfronny.raut.api.MiningLevel;
 import com.jfronny.raut.mixin.interfacing.ItemGroupExtension;
 import com.jfronny.raut.tools.AngelBlock;
 import com.jfronny.raut.tools.AngelBlockItem;
 import io.github.cottonmc.cotton.datapack.recipe.RecipeUtil;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.FabricLootSupplierBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.fabricmc.fabric.api.tools.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.item.*;
 import net.minecraft.loot.ConstantLootTableRange;
 import net.minecraft.loot.LootManager;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
@@ -31,12 +31,17 @@ public class MiscModule extends BaseModule {
     public static final Block BOOST = new Block(FabricBlockSettings.of(Material.GLASS).breakByHand(false).breakByTool(FabricToolTags.PICKAXES, MiningLevel.IRON).slipperiness(10).strength(3, 3).build());
     public static final Item CHAIN_PLATE = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
     public static final Block ANGEL_BLOCK = new AngelBlock();
+    public static final Item GLASS_SHARD = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
+    public static final GenericPlant END_PLANT = new GenericPlant();
+    public static final BlockItem END_PLANT_SEED = END_PLANT.seed;
 
     @Override
     public void Init() {
         DepRegistry.registerBlock("boost", cfg.misc.enabled && cfg.misc.boostBlock, BOOST);
         DepRegistry.registerItem("chain_plate", cfg.misc.enabled && cfg.misc.chainPlate, CHAIN_PLATE);
         DepRegistry.registerBlock("angelblock", cfg.misc.enabled && cfg.misc.angelBlock, ANGEL_BLOCK, new AngelBlockItem());
+        DepRegistry.registerItem("glass_shard", cfg.misc.enabled && cfg.misc.glassShards, GLASS_SHARD);
+        DepRegistry.registerBlock("end_plant", cfg.misc.enabled && cfg.misc.endPlant, END_PLANT, END_PLANT_SEED);
         if (cfg.misc.enabled) {
             if (cfg.misc.betterDiamondRecipe) {
                 RecipeUtil.removeRecipe("minecraft:leather_horse_armor");
@@ -62,6 +67,9 @@ public class MiscModule extends BaseModule {
                 RecipeUtil.removeRecipe("raut:golden_horse_armor");
                 RecipeUtil.removeRecipe("raut:iron_horse_armor");
             }
+            if (!cfg.misc.glassShards) {
+                RecipeUtil.removeRecipe("raut:glass_shard");
+            }
         } else {
             RecipeUtil.removeRecipe("raut:leather_horse_armor");
             RecipeUtil.removeRecipe("raut:diamond_horse_armor");
@@ -75,6 +83,7 @@ public class MiscModule extends BaseModule {
             RecipeUtil.removeRecipe("raut:diamond_chestplate");
             RecipeUtil.removeRecipe("raut:diamond_helmet");
             RecipeUtil.removeRecipe("raut:diamond_leggings");
+            RecipeUtil.removeRecipe("raut:glass_shard");
         }
     }
 
@@ -89,6 +98,16 @@ public class MiscModule extends BaseModule {
                         .withEntry(ItemEntry.builder(Items.BEETROOT_SEEDS))
                         .withEntry(ItemEntry.builder(Items.MELON_SEEDS))
                         .withEntry(ItemEntry.builder(Items.PUMPKIN_SEEDS));
+                supplier.withPool(poolBuilder.build());
+            }
+        }
+        if ((id.equals(new Identifier("chests/abandoned_mineshaft")) || id.equals(new Identifier("chests/desert_pyramid")) || id.equals(new Identifier("chests/jungle_temple")))) {
+            if (cfg.misc.enabled && cfg.misc.endPlant) {
+                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder
+                        .builder()
+                        .withRolls(ConstantLootTableRange.create(1))
+                        .withCondition(RandomChanceLootCondition.builder(0.1f))
+                        .withEntry(ItemEntry.builder(END_PLANT_SEED));
                 supplier.withPool(poolBuilder);
             }
         }
@@ -134,6 +153,9 @@ public class MiscModule extends BaseModule {
             SEARCH.addStack(new ItemStack(Items.WRITTEN_BOOK));
             MISC.addStack(new ItemStack(Items.KNOWLEDGE_BOOK));
             SEARCH.addStack(new ItemStack(Items.KNOWLEDGE_BOOK));
+        }
+        if (cfg.misc.enabled && cfg.misc.endPlant) {
+            BlockRenderLayerMap.INSTANCE.putBlock(END_PLANT, RenderLayer.getCutout());
         }
     }
 }

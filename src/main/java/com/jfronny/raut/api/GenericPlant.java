@@ -1,13 +1,11 @@
-package com.jfronny.raut.crops;
+package com.jfronny.raut.api;
 
-import com.jfronny.raut.modules.CrystalPlantModule;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CropBlock;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.DefaultedList;
@@ -19,14 +17,17 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class CrystalPlant extends CropBlock {
-    public CrystalPlant() {
+public class GenericPlant extends CropBlock {
+    public BlockItem seed;
+
+    public GenericPlant() {
         super(FabricBlockSettings.copy(Blocks.WHEAT).build());
+        this.seed = new AliasedBlockItem(this, new Item.Settings().group(ItemGroup.MATERIALS));
     }
 
     @Override
     protected ItemConvertible getSeedsItem() {
-        return CrystalPlantModule.CRYSTAL_PLANT_SEED;
+        return seed;
     }
 
     @Override
@@ -37,7 +38,7 @@ public class CrystalPlant extends CropBlock {
             drops.addAll(dropList);
 
             for (ItemStack stack : drops) {
-                if (stack.getItem() == CrystalPlantModule.CRYSTAL_PLANT_SEED) {
+                if (stack.getItem() == seed) {
                     ItemStack seedStack = stack.copy();
                     drops.remove(stack);
                     seedStack.decrement(1);
@@ -48,6 +49,7 @@ public class CrystalPlant extends CropBlock {
 
             world.setBlockState(pos, state.with(AGE, 0));
             ItemScatterer.spawn(world, pos, drops);
+            return ActionResult.SUCCESS;
         }
         return super.onUse(state, world, pos, player, hand, hitResult);
     }

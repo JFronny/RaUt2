@@ -74,6 +74,10 @@ public class Cfg implements ConfigData {
         public Boolean betterDiamondRecipe = enabled;
         @Comment("Adds some items to the creative menus that are hidden by default (eg command blocks)")
         public Boolean extraCreativeItems = enabled;
+        @Comment("Glass drops some shards so you don't loose all of it")
+        public Boolean glassShards = enabled;
+        @Comment("A plant to farm ender pearls")
+        public Boolean endPlant = enabled;
     }
 
     public static class VanillaPaxelsModule {
@@ -139,7 +143,7 @@ public class Cfg implements ConfigData {
     }
 
     public static class DebugModule {
-        public Boolean enabled = true;
+        public Boolean enabled = false;
         @Comment("Item to easily clear large areas")
         public Boolean debugClear = enabled;
     }

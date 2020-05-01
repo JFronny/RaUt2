@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "#R#",
+    "#S#",
     "RBR",
-    "#R#"
+    "#S#"
   ],
   "key": {
     "#": {
@@ -11,6 +11,9 @@
     },
     "R": {
       "item": "raut:aquilorite_gem"
+    },
+    "S": {
+      "item": "minecraft:shulker_shell"
     },
     "B": {
       "item": "raut:backpack",

@@ -22,16 +22,16 @@ public class BackpackInventory implements ImplementedInventory {
         theSlot = slotNumber;
         switch (size) {
             case SMALL:
-                theList = DefaultedList.ofSize(9, ItemStack.EMPTY);
-                break;
-            case MEDIUM:
                 theList = DefaultedList.ofSize(27, ItemStack.EMPTY);
                 break;
-            case LARGE:
+            case MEDIUM:
                 theList = DefaultedList.ofSize(45, ItemStack.EMPTY);
                 break;
+            case LARGE:
+                theList = DefaultedList.ofSize(63, ItemStack.EMPTY);
+                break;
             default:
-                theList = DefaultedList.ofSize(9, ItemStack.EMPTY);
+                theList = DefaultedList.ofSize(27, ItemStack.EMPTY);
                 break;
         }
         if (stack.getTag().contains("Inventory"))
