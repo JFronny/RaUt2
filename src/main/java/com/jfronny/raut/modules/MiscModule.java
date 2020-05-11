@@ -1,9 +1,12 @@
 package com.jfronny.raut.modules;
 
+import com.jfronny.raut.RaUt;
 import com.jfronny.raut.api.BaseModule;
 import com.jfronny.raut.api.DepRegistry;
 import com.jfronny.raut.api.GenericPlant;
 import com.jfronny.raut.api.MiningLevel;
+import com.jfronny.raut.blocks.CobbleGeneratorBlock;
+import com.jfronny.raut.blocks.CobbleGeneratorEntity;
 import com.jfronny.raut.mixin.interfacing.ItemGroupExtension;
 import com.jfronny.raut.tools.AngelBlock;
 import com.jfronny.raut.tools.AngelBlockItem;
@@ -16,6 +19,7 @@ import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.fabricmc.fabric.api.tools.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.*;
 import net.minecraft.loot.ConstantLootTableRange;
@@ -24,6 +28,7 @@ import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 import static com.jfronny.raut.RaUt.cfg;
 
@@ -34,6 +39,9 @@ public class MiscModule extends BaseModule {
     public static final Item GLASS_SHARD = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
     public static final GenericPlant END_PLANT = new GenericPlant();
     public static final BlockItem END_PLANT_SEED = END_PLANT.seed;
+    public static final Block COBBLE_GENERATOR = new CobbleGeneratorBlock();
+    public static final BlockItem COBBLE_GENERATOR_ITEM = new BlockItem(COBBLE_GENERATOR, new Item.Settings().group(ItemGroup.DECORATIONS));
+    public static final BlockEntityType COBBLE_GENERATOR_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(RaUt.MOD_ID, "cobble_generator"), BlockEntityType.Builder.create(CobbleGeneratorEntity::new, COBBLE_GENERATOR).build(null));
 
     @Override
     public void Init() {
@@ -42,6 +50,7 @@ public class MiscModule extends BaseModule {
         DepRegistry.registerBlock("angelblock", cfg.misc.enabled && cfg.misc.angelBlock, ANGEL_BLOCK, new AngelBlockItem());
         DepRegistry.registerItem("glass_shard", cfg.misc.enabled && cfg.misc.glassShards, GLASS_SHARD);
         DepRegistry.registerBlock("end_plant", cfg.misc.enabled && cfg.misc.endPlant, END_PLANT, END_PLANT_SEED);
+        DepRegistry.registerBlock("cobble_generator", cfg.misc.enabled && cfg.misc.cobbleGen, COBBLE_GENERATOR, COBBLE_GENERATOR_ITEM);
         if (cfg.misc.enabled) {
             if (cfg.misc.betterDiamondRecipe) {
                 RecipeUtil.removeRecipe("minecraft:leather_horse_armor");

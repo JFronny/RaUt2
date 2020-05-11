@@ -78,6 +78,8 @@ public class Cfg implements ConfigData {
         public Boolean glassShards = enabled;
         @Comment("A plant to farm ender pearls")
         public Boolean endPlant = enabled;
+        @Comment("A simple cobblestone generator")
+        public Boolean cobbleGen = enabled;
     }
 
     public static class VanillaPaxelsModule {

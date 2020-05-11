@@ -93,9 +93,6 @@ public class BackpackTrinket extends Item implements ITrinket {
                               TooltipContext context) {
         int size = stack.hasTag() && stack.getTag().contains("Size") ? stack.getTag().getInt("Size") : 0;
         switch (size) {
-            case 0:
-                tooltip.add(new TranslatableText("item.raut.backpack.tooltip.small"));
-                break;
             case 1:
                 tooltip.add(new TranslatableText("item.raut.backpack.tooltip.medium"));
                 break;

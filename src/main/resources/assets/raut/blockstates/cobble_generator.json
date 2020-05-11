@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "raut:block/cobble_generator"
+    }
+  }
+}
