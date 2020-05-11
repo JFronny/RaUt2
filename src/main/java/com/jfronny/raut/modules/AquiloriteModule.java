@@ -2,12 +2,14 @@ package com.jfronny.raut.modules;
 
 import com.jfronny.raut.api.*;
 import com.jfronny.raut.armor.AquiloriteArmorMat;
+import com.jfronny.raut.items.AquiloriteGun;
 import com.jfronny.raut.tools.AquiloriteToolMat;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
 import net.fabricmc.fabric.api.tools.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
+import net.minecraft.item.ArrowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.registry.Registry;
@@ -26,6 +28,8 @@ public class AquiloriteModule extends BaseModule {
     public static final Block AQUILORITE_BLOCK_2 = new Block(FabricBlockSettings.of(Material.GLASS).breakByHand(false).breakByTool(FabricToolTags.PICKAXES, MiningLevel.IRON).slipperiness(1).strength(3, 3).build());
     public static final Item AQUILORITE_GEM = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
     public static final Item AQUILORITE_MULTITOOL = new PaxelItem(new AquiloriteToolMat(), new Item.Settings().maxDamage(12000).group(ItemGroup.TOOLS));
+    public static final ArrowItem EXPLOSIVE_SHARD = new ArrowItem(new Item.Settings().group(ItemGroup.MATERIALS));
+    public static final AquiloriteGun AQUILORITE_GUN = new AquiloriteGun();
     public static final AttributeArmorMat AQUILORITE_ARMOR = new AquiloriteArmorMat();
 
     @Override
@@ -36,6 +40,8 @@ public class AquiloriteModule extends BaseModule {
         DepRegistry.registerBlock("aquilorite_block_hardened", cfg.aquilorite.enabled && cfg.aquilorite.aquiloriteBlockHardened, AQUILORITE_BLOCK_2);
         DepRegistry.registerItem("aquilorite_gem", cfg.aquilorite.enabled, AQUILORITE_GEM);
         DepRegistry.registerItem("aquilorite_paxel", cfg.aquilorite.enabled && cfg.aquilorite.aquiloritePaxel, AQUILORITE_MULTITOOL);
+        DepRegistry.registerItem("explosive_shard", cfg.aquilorite.enabled && cfg.aquilorite.gun, EXPLOSIVE_SHARD);
+        DepRegistry.registerItem("aquilorite_gun", cfg.aquilorite.enabled && cfg.aquilorite.gun, AQUILORITE_GUN);
         RegistryEntryAddedCallback.event(Registry.BIOME).register((i, identifier, biome) -> handleBiome(biome));
     }
 

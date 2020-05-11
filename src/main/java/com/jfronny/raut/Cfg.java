@@ -116,6 +116,8 @@ public class Cfg implements ConfigData {
         public Boolean aquiloriteArmor = enabled;
         @Comment("A powerful multitool")
         public Boolean aquiloritePaxel = enabled;
+        @Comment("Aquilorite gun")
+        public Boolean gun = enabled;
     }
 
     public static class CottonModule {
