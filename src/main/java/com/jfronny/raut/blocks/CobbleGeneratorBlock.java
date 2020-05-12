@@ -42,6 +42,18 @@ public class CobbleGeneratorBlock extends Block implements BlockEntityProvider {
     }
 
     @Override
+    public boolean hasRandomTicks(BlockState state) {
+        return true;
+    }
+
+    @Override
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        if (!world.getBlockTickScheduler().isScheduled(pos, COBBLE_GENERATOR)) {
+            world.getBlockTickScheduler().schedule(pos, COBBLE_GENERATOR, 10);
+        }
+    }
+
+    @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
             CobbleGeneratorEntity entity = (CobbleGeneratorEntity) world.getBlockEntity(pos);
@@ -51,9 +63,6 @@ public class CobbleGeneratorBlock extends Block implements BlockEntityProvider {
                 entity.cobbleCount -= tmp.getCount();
                 entity.markDirty();
                 player.giveItemStack(tmp);
-            }
-            if (!world.getBlockTickScheduler().isScheduled(pos, COBBLE_GENERATOR)) {
-                world.getBlockTickScheduler().schedule(pos, COBBLE_GENERATOR, 10);
             }
         }
         return ActionResult.SUCCESS;

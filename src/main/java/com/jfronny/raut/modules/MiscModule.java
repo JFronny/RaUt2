@@ -5,6 +5,7 @@ import com.jfronny.raut.api.BaseModule;
 import com.jfronny.raut.api.DepRegistry;
 import com.jfronny.raut.api.GenericPlant;
 import com.jfronny.raut.api.MiningLevel;
+import com.jfronny.raut.blocks.BlockBreaker;
 import com.jfronny.raut.blocks.CobbleGeneratorBlock;
 import com.jfronny.raut.blocks.CobbleGeneratorEntity;
 import com.jfronny.raut.mixin.interfacing.ItemGroupExtension;
@@ -16,6 +17,7 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.FabricLootSupplierBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
+import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.fabricmc.fabric.api.tools.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
@@ -27,6 +29,7 @@ import net.minecraft.loot.LootManager;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.resource.ResourceManager;
+import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -42,6 +45,8 @@ public class MiscModule extends BaseModule {
     public static final Block COBBLE_GENERATOR = new CobbleGeneratorBlock();
     public static final BlockItem COBBLE_GENERATOR_ITEM = new BlockItem(COBBLE_GENERATOR, new Item.Settings().group(ItemGroup.DECORATIONS));
     public static final BlockEntityType COBBLE_GENERATOR_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(RaUt.MOD_ID, "cobble_generator"), BlockEntityType.Builder.create(CobbleGeneratorEntity::new, COBBLE_GENERATOR).build(null));
+    public static final Block BLOCK_BREAKER = new BlockBreaker();
+    public static final Tag<Block> UNBREAKABLE = TagRegistry.block(new Identifier(RaUt.MOD_ID, "unbreakable"));
 
     @Override
     public void Init() {
@@ -51,6 +56,7 @@ public class MiscModule extends BaseModule {
         DepRegistry.registerItem("glass_shard", cfg.misc.enabled && cfg.misc.glassShards, GLASS_SHARD);
         DepRegistry.registerBlock("end_plant", cfg.misc.enabled && cfg.misc.endPlant, END_PLANT, END_PLANT_SEED);
         DepRegistry.registerBlock("cobble_generator", cfg.misc.enabled && cfg.misc.cobbleGen, COBBLE_GENERATOR, COBBLE_GENERATOR_ITEM);
+        DepRegistry.registerBlock("block_breaker", cfg.misc.enabled, BLOCK_BREAKER, ItemGroup.REDSTONE);
         if (cfg.misc.enabled) {
             if (cfg.misc.betterDiamondRecipe) {
                 RecipeUtil.removeRecipe("minecraft:leather_horse_armor");

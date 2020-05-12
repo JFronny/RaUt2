@@ -58,6 +58,7 @@
   "block.raut.aquilorite_block_hardened": "Aquilorite Block (hardened)",
   "block.raut.boost": "Boost",
   "block.raut.cobble_generator": "Cobblestone Generator",
+  "block.raut.block_breaker": "Block Breaker",
   "text.autoconfig.RaUt2.option.misc.enabled": "Enables the module. Disabling disables all others all other values",
   "text.autoconfig.RaUt2.option.misc.chainmailRecipe": "Chainmail Recipe",
   "text.autoconfig.RaUt2.option.misc.horseArmorRecipe": "Horse Armor Recipe",

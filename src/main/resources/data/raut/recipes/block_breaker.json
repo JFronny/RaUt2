@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#R#",
+    "DJX",
+    "#R#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:cobblestone"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "D": {
+      "item": "minecraft:diamond_shovel"
+    },
+    "J": {
+      "item": "minecraft:diamond_pickaxe"
+    },
+    "X": {
+      "item": "minecraft:diamond_axe"
+    }
+  },
+  "result": {
+    "item": "raut:block_breaker",
+    "count": 1
+  }
+}
