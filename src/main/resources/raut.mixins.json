@@ -3,12 +3,12 @@
   "package": "com.jfronny.raut.mixin.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-  ],
-  "client": [
-    "MixinItemGroup",
     "MixinShulkerBoxBlockEntity",
     "MixinShulkerBoxSlot",
     "MixinItem"
+  ],
+  "client": [
+    "MixinItemGroup"
   ],
   "injectors": {
     "defaultRequire": 1

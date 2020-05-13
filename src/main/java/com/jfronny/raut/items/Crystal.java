@@ -12,6 +12,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -34,16 +36,30 @@ public class Crystal extends Item {
                     e.printStackTrace();
                 }
                 if (effect instanceof StatusEffect) {
+                    boolean added = false;
                     StatusEffect tmp = (StatusEffect) effect;
-                    if (tmp.isBeneficial())
+                    for (Method method : StatusEffect.class.getMethods()) {
+                        //RaUt.logger.devInfo(method.getName());
+                        if (method.getName().equals("isBeneficial")) {
+                            added = true;
+                            try {
+                                if ((boolean) method.invoke(tmp))
+                                    positiveEffects.add((StatusEffect) effect);
+                                else
+                                    negativeEffects.add((StatusEffect) effect);
+                            } catch (IllegalAccessException | InvocationTargetException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                    if (!added)
                         positiveEffects.add((StatusEffect) effect);
-                    else
-                        negativeEffects.add((StatusEffect) effect);
                 }
             }
         }
     }
 
+    //
     public Crystal() {
         super(new Item.Settings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.1f).alwaysEdible().build()));
     }

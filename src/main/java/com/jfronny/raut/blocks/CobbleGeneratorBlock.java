@@ -1,20 +1,19 @@
 package com.jfronny.raut.blocks;
 
-import com.jfronny.raut.RaUt;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockEntityProvider;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Tickable;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
@@ -24,7 +23,6 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 import static com.jfronny.raut.modules.MiscModule.COBBLE_GENERATOR;
-import static com.jfronny.raut.modules.MiscModule.COBBLE_GENERATOR_ITEM;
 
 public class CobbleGeneratorBlock extends Block implements BlockEntityProvider {
     public CobbleGeneratorBlock() {

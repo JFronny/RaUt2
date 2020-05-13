@@ -1,10 +1,27 @@
 {
-    "variants": {
-        "facing=up": { "model": "raut:block/block_breaker", "x": 270 },
-        "facing=down": { "model": "raut:block/block_breaker", "x": 90 },
-        "facing=north": { "model": "raut:block/block_breaker" },
-        "facing=south": { "model": "raut:block/block_breaker", "y": 180 },
-        "facing=west": { "model": "raut:block/block_breaker", "y": 270 },
-        "facing=east": { "model": "raut:block/block_breaker", "y": 90 }
+  "variants": {
+    "facing=up": {
+      "model": "raut:block/block_breaker",
+      "x": 270
+    },
+    "facing=down": {
+      "model": "raut:block/block_breaker",
+      "x": 90
+    },
+    "facing=north": {
+      "model": "raut:block/block_breaker"
+    },
+    "facing=south": {
+      "model": "raut:block/block_breaker",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "raut:block/block_breaker",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "raut:block/block_breaker",
+      "y": 90
     }
+  }
 }

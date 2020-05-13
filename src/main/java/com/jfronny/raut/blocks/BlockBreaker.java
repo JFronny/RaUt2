@@ -27,7 +27,7 @@ public class BlockBreaker extends FacingBlock {
             BlockPos mov = pos.offset(direction);
             BlockState target = world.getBlockState(mov);
             if (checkPowered(world, pos, direction) && (neighborPos.getX() != mov.getX() || neighborPos.getY() != mov.getY() || neighborPos.getZ() != mov.getZ())
-                && target.getBlock().getHardness(target, world, mov) >= 0 && !target.getBlock().matches(UNBREAKABLE)) {
+                    && target.getBlock().getHardness(target, world, mov) >= 0 && !target.getBlock().matches(UNBREAKABLE)) {
                 world.breakBlock(mov, true);
             }
         }
@@ -38,7 +38,7 @@ public class BlockBreaker extends FacingBlock {
         int var5 = var4.length;
 
         int var6;
-        for(var6 = 0; var6 < var5; ++var6) {
+        for (var6 = 0; var6 < var5; ++var6) {
             Direction direction = var4[var6];
             if (direction != face && world.isEmittingRedstonePower(pos.offset(direction), direction)) {
                 return true;
@@ -52,7 +52,7 @@ public class BlockBreaker extends FacingBlock {
             Direction[] var10 = Direction.values();
             var6 = var10.length;
 
-            for(int var11 = 0; var11 < var6; ++var11) {
+            for (int var11 = 0; var11 < var6; ++var11) {
                 Direction direction2 = var10[var11];
                 if (direction2 != Direction.DOWN && world.isEmittingRedstonePower(blockPos.offset(direction2), direction2)) {
                     return true;

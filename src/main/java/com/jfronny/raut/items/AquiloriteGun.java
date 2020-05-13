@@ -3,7 +3,6 @@ package com.jfronny.raut.items;
 import com.jfronny.raut.modules.AquiloriteModule;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.*;
@@ -14,7 +13,6 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
-import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class AquiloriteGun extends RangedWeaponItem {
@@ -36,7 +34,7 @@ public class AquiloriteGun extends RangedWeaponItem {
         ItemStack stack = user.getStackInHand(hand);
         ItemStack arrows = user.getArrowType(stack);
         boolean inf = user.abilities.creativeMode || EnchantmentHelper.getLevel(Enchantments.INFINITY, stack) > 0;
-        if (!arrows.isEmpty() || inf){
+        if (!arrows.isEmpty() || inf) {
             if (arrows.isEmpty())
                 arrows = new ItemStack(AquiloriteModule.EXPLOSIVE_SHARD);
 
