@@ -12,7 +12,7 @@ public class DataFixerModule extends BaseModule {
     @Override
     public void Init() {
         for (Item item : DepRegistry.disabledItems.values()) {
-            logger.devInfo("Block: " + item.getName().asString());
+            logger.devInfo("Block: " + item.toString());
             ItemStack stack = new ItemStack(item);
             RecipeUtil.removeRecipeFor(stack);
         }

@@ -13,7 +13,6 @@ group = project.maven_group
 repositories {
     maven { url = 'https://dl.bintray.com/ladysnake/libs'; name = "PAL" }
     maven { url = 'https://jitpack.io' }
-    maven { url = 'https://maven.abusedmaster.xyz/' }
     maven { url = 'https://minecraft.curseforge.com/api/maven' }
     maven { url = 'https://server.bbkr.space/artifactory/libs-release'; name = "Cotton" }
     maven { url = 'https://maven.jamieswhiteshirt.com/libs-release/'; name = "CurseForge" }
@@ -40,8 +39,21 @@ dependencies {
     modImplementation "io.github.cottonmc.cotton:cotton:${project.cotton_version}"
 
     //LibGUI
-    include "io.github.cottonmc:LibGui:${project.libgui_version}"
-    modImplementation "io.github.cottonmc:LibGui:${project.libgui_version}"
+    include ("io.github.cottonmc:LibGui:${project.libgui_version}") {
+        transitive = false;
+    }
+    modImplementation ("io.github.cottonmc:LibGui:${project.libgui_version}") {
+        transitive = false;
+    }
+
+    //LibCD
+    modImplementation ("io.github.cottonmc:LibCD:${project.libcd_version}") {
+        transitive = false;
+    }
+    include ("io.github.cottonmc:LibCD:${project.libcd_version}") {
+        transitive = false;
+    }
+
 
     //REI
     modCompile("me.shedaniel:RoughlyEnoughItems:3.6.4") {
